@@ -18,58 +18,43 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          default: "rbga(var(--primary-600))",
+          900: "rgba(var(--primary-900))",
+          800: "rgba(var(--primary-800))",
+          700: "rgba(var(--primary-700))",
+          600: "rgba(var(--primary-600))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          default: "rgba(var(--accent-800))",
+          900: "rgba(var(--accent-900))",
+          700: "rgba(var(--accent-700))",
+          500: "rgba(var(--accent-500))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        success: {
+          default: "rgba(var(--success-700))",
+          900: "rgba(var(--success-900))",
+          800: "rgba(var(--success-800))",
+          600: "rgba(var(--success-600))",
+          500: "rgba(var(--success-500))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        warning: {
+          default: "rgba(var(--warning-700))",
+          900: "rgba(var(--warning-900))",
+          800: "rgba(var(--warning-800))",
+          600: "rgba(var(--warning-600))",
+          500: "rgba(var(--warning-500))",
         },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        error: {
+          default: "rgba(var(--error-700))",
+          900: "rgba(var(--error-900))",
+          800: "rgba(var(--error-800))",
+          600: "rgba(var(--error-600))",
+          500: "rgba(var(--error-500))",
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        text: {
+          default: "rgba(var(--text-base))",
+        }
       },
     },
   },
