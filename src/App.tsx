@@ -5,10 +5,12 @@ import Sidebar from './components/layout/sidebar';
 
 export default function App() {
   return (
-    <div className="h-screen flex flex-col">
-      <Header />
-      <div className="flex flex-1">
-        <Sidebar/>
+    <div className="h-screen flex flex-row">
+      <Sidebar/>
+      <div className="flex flex-1 flex-col">
+        <Header />
+        <div className="">
+        </div>
       </div>
      
       <ToastContainer />
