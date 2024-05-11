@@ -14,6 +14,7 @@ module.exports = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        "xl": "1200px"
       },
     },
     extend: {
@@ -54,6 +55,9 @@ module.exports = {
         },
         text: {
           default: "rgba(var(--text-base))",
+        },
+        border: {
+          inpur: "rgba(var(--border-input))",
         }
       },
     },
