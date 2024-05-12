@@ -4,11 +4,12 @@ import HomeIcon from "@/assets/icons/sidebar/home";
 import SettingIcon from "@/assets/icons/sidebar/setting";
 import TaskIcon from "@/assets/icons/sidebar/task";
 import TreeIcon from "@/assets/icons/sidebar/tree";
+import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 const renderIcon = (iconName: string) => {
   switch (iconName) {
     case 'HomeIcon':
-      return <HomeIcon/>;
+      return <HomeIcon />;
     case 'CalendarIcon':
       return <CalendarIcon />;
     case 'TaskIcon':
@@ -29,17 +30,42 @@ type Props = {
   icon: string;
   name: string;
   href: string;
+  isActive?: boolean;
 }
 
-export default function SidebarItem({icon, name, href}: Props) {
+export default function SidebarItem({
+  icon,
+  name,
+  href,
+  isActive
+}: Props) {
   return (
     <NavLink to={href} replace={true}>
-      <div className='flex items-center gap-[20px]'>
-          <div>
-            {renderIcon(icon)}
+      <motion.div
+        className='mx-[10px] rounded-[15px]'
+        initial={isActive === true ? { backgroundColor: '#B4E6FF' } : { backgroundColor: '#FFF' }}
+        whileHover={{
+          backgroundColor: '#B4E6FF',
+          color: '#FFF'
+        }}
+        whileTap={{
+          backgroundColor: '#B4E6FF'
+        }}
+        animate={isActive === true ?
+          {
+            backgroundColor: '#B4E6FF',
+          } : { backgroundColor: '#FFF' }
+
+        }
+      >
+
+        <div className="flex items-center gap-[20px] px-[30px] py-[6px]">
+          {renderIcon(icon)}
+          <div className="2xl:text-[28px] text-[24px] text-text-default font-medium h-full">
+            {name}
           </div>
-          <div className="2xl:text-[28px] text-[24px] text-text-default font-medium h-full">{name}</div>
-      </div>
+        </div>
+      </motion.div>
     </NavLink>
   )
 }
