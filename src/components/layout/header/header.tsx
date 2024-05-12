@@ -3,7 +3,7 @@ import SearchIcon from "@/assets/icons/search"
 import SettingIcon from "@/assets/icons/setting"
 import { Button } from "../../ui/button"
 import FilterTypeCalendar from "./filter-type-calendar"
-
+import { Link } from "react-router-dom"
 type Props = {}
 
 export default function Header({}: Props) {
@@ -19,7 +19,7 @@ export default function Header({}: Props) {
         <div className="flex gap-[22px] justify-center">
           <SearchIcon />
           <ContactIcon/>
-          <SettingIcon/>
+          <Link to={'/setting'}><SettingIcon/></Link>
           <FilterTypeCalendar value="2"/>
         </div>
         <div className="">
