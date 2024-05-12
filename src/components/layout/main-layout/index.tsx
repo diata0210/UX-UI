@@ -12,12 +12,10 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
       <Sidebar/>
       <div className="flex flex-1 flex-col">
         <Header />
-        <div className=" ">
+        <div className="px-[30px] mt-[30px] bg-[#F5F7FA] w-full">
             <props.component />
         </div>
       </div>
-     
-
     </div>
   )
 }

@@ -1,6 +1,13 @@
-export default function ContactIcon() {
+type Props = {
+  width?: number;
+  height?: number;
+}
+export default function ContactIcon({
+  width = 35,
+  height= 35,
+}: Props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 35 35" fill="none">
       <g filter="url(#filter0_d_609_4769)">
         <circle cx="17.5" cy="13.5" r="13.5" fill="white" />
       </g>

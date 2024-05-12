@@ -1,8 +1,18 @@
+import moment from "moment";
+import {
+  Calendar as BigCalendar,
+  CalendarProps,
+  momentLocalizer,
+  Views
+} from "react-big-calendar";
 
-type Props = {}
-
-export default function CalendarPage({}: Props) {
+const localizer = momentLocalizer(moment);
+export default function CalendarPage(props: Omit<CalendarProps, "localizer">) {
   return (
-    <div>CalendarPage</div>
-  )
+    <BigCalendar
+      {...props}
+      localizer={localizer}
+      views={[Views.DAY, Views.WEEK, Views.MONTH]}
+    />
+  );
 }
