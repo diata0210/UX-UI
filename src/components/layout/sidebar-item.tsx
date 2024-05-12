@@ -1,15 +1,14 @@
 import CalendarIcon from "@/assets/icons/sidebar/calendar";
 import EvaluationIcon from "@/assets/icons/sidebar/evaluation";
-import HelpIcon from "@/assets/icons/sidebar/help";
 import HomeIcon from "@/assets/icons/sidebar/home";
 import SettingIcon from "@/assets/icons/sidebar/setting";
 import TaskIcon from "@/assets/icons/sidebar/task";
 import TreeIcon from "@/assets/icons/sidebar/tree";
-
+import { NavLink } from 'react-router-dom';
 const renderIcon = (iconName: string) => {
   switch (iconName) {
     case 'HomeIcon':
-      return <HomeIcon />;
+      return <HomeIcon/>;
     case 'CalendarIcon':
       return <CalendarIcon />;
     case 'TaskIcon':
@@ -20,8 +19,6 @@ const renderIcon = (iconName: string) => {
       return <TreeIcon />;
     case 'SettingIcon':
       return <SettingIcon />;
-    case 'HelpIcon':
-      return <HelpIcon />;
     default:
       return null;
   }
@@ -31,13 +28,18 @@ const renderIcon = (iconName: string) => {
 type Props = {
   icon: string;
   name: string;
+  href: string;
 }
 
-export default function SidebarItem({icon, name}: Props) {
+export default function SidebarItem({icon, name, href}: Props) {
   return (
-    <div className='flex items-center gap-[34px]'>
-        {renderIcon(icon)}
-        <div className="2xl:text-[28px] text-[24px] text-slate-400 font-medium h-full 2xl:leading-[48px] leading-[40px]">{name}</div>
-    </div>
+    <NavLink to={href} replace={true}>
+      <div className='flex items-center gap-[20px]'>
+          <div>
+            {renderIcon(icon)}
+          </div>
+          <div className="2xl:text-[28px] text-[24px] text-text-default font-medium h-full">{name}</div>
+      </div>
+    </NavLink>
   )
 }

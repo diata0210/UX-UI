@@ -8,10 +8,10 @@ type Props = {}
 
 export default function Header({}: Props) {
   return (
-    <div className="h-[120px] w-full rounded-[15px] bg-white px-[38px] py-[19px] flex justify-between items-center shadow mb-[7px]">
+    <div className="h-[100px] w-full rounded-[15px] bg-white px-[38px] py-[19px] flex justify-between items-center shadow ">
       <div className="flex gap-[44px] items-center">
         <Button variant="submit" className="">Thêm nhiệm vụ</Button>
-        <div className="text-[40px] text-[#707293]">
+        <div className="2xl:text-[40px] xl:text-[34px] text-[30px] text-[#707293]">
           Tháng 9 - 2077
         </div>
       </div>
@@ -24,6 +24,7 @@ export default function Header({}: Props) {
         </div>
         <div className="">
           <img src="/avatar.png" alt="avatar" className="object-cover rounded-full"/>
+          
         </div>
       </div>
     </div>
