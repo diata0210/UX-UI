@@ -104,35 +104,34 @@ type Props = {}
 export default function SettingPage({ }: Props) {
   return (
     <div
-      className="  setting-container flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full h-[85vh] "
-
+      className="flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full overscroll-y"
     >
-      <div className='breadcrum relative'>
-        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] pt-[20px] ml-[0px]'>
+      <div className='relative'>
+        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] ml-[0px] '>
           Cài đặt
         </div>
       </div>
-      <div className="content w-full relative bg-[#f9fafe] flex flex-col gap-[55px] ">
+      <div className=" w-full relative  flex flex-col gap-[55px] ">
         <div className=' flex flex-row '>
-          <div className='content-left w-1/2 pl-[58px] mt-[25px] flex flex-col gap-[10px]'>
+          <div className=' w-1/2 md:mt-[28px] mt-[20px] flex flex-col gap-[10px]'>
 
-            <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam' width="75%"  />
-            <div className='format flex flex-row gap-[14px] w-full' >
+            <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam'   />
+            <div className='format flex flex-row gap-[14px] w-full justify-between w-[200px]' >
               <CascaderInput label='Định dạng' options={fomartDate} defaultvalue='MM/DD/YYYY' />
               <CascaderInput label='Định dạng giờ' options={fomartTime} defaultvalue='12' />
             </div>
-            <CascaderInput label='Quốc gia' options={country} defaultvalue='vietnam' width="75%" />
-            <CascaderInput label='Múi giờ' options={timezone} defaultvalue='+7' width="75%" />
+            <CascaderInput label='Quốc gia' options={country} defaultvalue='vietnam'  />
+            <CascaderInput label='Múi giờ' options={timezone} defaultvalue='+7'  />
             <div className=" ml-[35px] mt-[16px] flex justify-center items-center h-[44px] w-1/2 border-2 border-solid rounded-[10px] bg-white border-[#0069ff] text-[14px] font-medium text-[#0069ff]">
               Thêm lịch
             </div>
           </div>
 
           <div className='cotent-right  w-1/2 pl-[58px] mt-[25px] flex flex-col gap-[10px]'>
-            <CascaderInput label='Cài đặt thông báo' options={notify} defaultvalue='screen' width="75%" />
-            <CascaderInput label='Thông báo trước sự kiện' options={notifyBefore} defaultvalue='30' width="75%" />
-            <CascaderInput label='Bắt đầu tuần vào' options={weekStart} defaultvalue='monday' width="75%" />
-            <CascaderInput label='Hiển thị lịch các ngày lễ' options={holidayDisplay} defaultvalue='no' width="75%" />
+            <CascaderInput label='Cài đặt thông báo' options={notify} defaultvalue='screen'  />
+            <CascaderInput label='Thông báo trước sự kiện' options={notifyBefore} defaultvalue='30'  />
+            <CascaderInput label='Bắt đầu tuần vào' options={weekStart} defaultvalue='monday'  />
+            <CascaderInput label='Hiển thị lịch các ngày lễ' options={holidayDisplay} defaultvalue='no'  />
           </div>
         </div>
         <div className="submmit-button flex align-center justify-around mb-[30px]">

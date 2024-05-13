@@ -1,23 +1,28 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 type Props = {
-  value?: string;
+  defautValue?: string;
   onChange?: () => void;
+  value?: string;
+  
 }
 
 export default function FilterByTaskStatus({
-  value,
-  onChange
+  defautValue,
+  onChange,
+  value
 }: Props) {
+
+  console.log(value);
   return (
-      <Select>
+      <Select defaultValue={defautValue} value={value} onValueChange={onChange}>
         <SelectTrigger className="w-[300px] h-full bg-white rounded shadow">
-          <SelectValue className="rounded-[15px] shadow" placeholder={value === "1" ? "Chưa hoàn thành" : value === "2" ? "Đã hoàn thành" : "Lọc theo trạng thái"}>
+          <SelectValue className="rounded-[15px] shadow" placeholder={defautValue === "1" ? "Chưa hoàn thành" : defautValue === "2" ? "Đã hoàn thành" : "Lọc theo trạng thái"}>
           </SelectValue>
         </SelectTrigger>
-        <SelectContent defaultValue={value} onChange={onChange}>
-          <SelectItem value="1">Chưa hoàn thành</SelectItem>
-          <SelectItem value="2">Đã hoàn thành</SelectItem>
+        <SelectContent className="bg-white rounded-[10px] border border-neutral-400">
+          <SelectItem value="1" className=" text-gray-800 text-xl font-normal hover:opacity-90">Chưa hoàn thành</SelectItem>
+          <SelectItem value="2" className=" text-gray-800 text-xl font-normal hover:opacity-90">Đã hoàn thành</SelectItem>
         </SelectContent>
       </Select>
 
