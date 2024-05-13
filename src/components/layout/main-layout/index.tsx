@@ -10,10 +10,10 @@ const MainLayout: React.FC<MainLayoutProps> = (props) => {
   return (
     <div className="h-screen flex flex-row overflow-y-hidden">
       <Sidebar/>
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col h-full">
         <Header />
-        <div className="px-[10px] pt-[10px] overscroll-y-auto bg-[#F5F7FA] w-full mb-[5px]">
-            <div className='px-[50px] bg-white shadow-md rounded-xl overflow-y-scroll pt-[20px]'>
+        <div className="px-[10px] pt-[10px] h-full bg-[#F5F7FA] w-full">
+            <div className='px-[50px] bg-white shadow-md rounded-xl pt-[20px] h-full overflow-y-scroll'>
               <props.component />
             </div>
         </div>
