@@ -104,19 +104,19 @@ type Props = {}
 export default function SettingPage({ }: Props) {
   return (
     <div
-      className=" setting-container flex  flex-col flex bg-white rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full h-[85vh] "
+      className="  setting-container flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full h-[85vh] "
 
     >
-      <div className='breadcrum'>
-        <div className='flex-grow-0 flex-shrink-0  text-[36px] font-semibold text-left text-[#4677d4] mt-[15px] ml-[43px]'>
+      <div className='breadcrum relative'>
+        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] pt-[20px] ml-[0px]'>
           Cài đặt
         </div>
       </div>
-      <div className="content mx-[50px] relative overflow-hidden bg-[#f9fafe] flex flex-col gap-[55px]">
+      <div className="content w-full relative bg-[#f9fafe] flex flex-col gap-[55px] ">
         <div className=' flex flex-row '>
           <div className='content-left w-1/2 pl-[58px] mt-[25px] flex flex-col gap-[10px]'>
 
-            <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam' width="75%" />
+            <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam' width="75%"  />
             <div className='format flex flex-row gap-[14px] w-full' >
               <CascaderInput label='Định dạng' options={fomartDate} defaultvalue='MM/DD/YYYY' />
               <CascaderInput label='Định dạng giờ' options={fomartTime} defaultvalue='12' />
