@@ -115,23 +115,23 @@ export default function SettingPage({ }: Props) {
         <div className=' flex flex-row '>
           <div className=' w-1/2 md:mt-[28px] mt-[20px] flex flex-col gap-[10px]'>
 
-            <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam'   />
+            <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam' />
             <div className='format flex flex-row gap-[14px] w-full justify-between w-[200px]' >
               <CascaderInput label='Định dạng' options={fomartDate} defaultvalue='MM/DD/YYYY' />
               <CascaderInput label='Định dạng giờ' options={fomartTime} defaultvalue='12' />
             </div>
-            <CascaderInput label='Quốc gia' options={country} defaultvalue='vietnam'  />
-            <CascaderInput label='Múi giờ' options={timezone} defaultvalue='+7'  />
+            <CascaderInput label='Quốc gia' options={country} defaultvalue='vietnam' />
+            <CascaderInput label='Múi giờ' options={timezone} defaultvalue='+7' />
             <div className=" ml-[35px] mt-[16px] flex justify-center items-center h-[44px] w-1/2 border-2 border-solid rounded-[10px] bg-white border-[#0069ff] text-[14px] font-medium text-[#0069ff]">
               Thêm lịch
             </div>
           </div>
 
           <div className='cotent-right  w-1/2 pl-[58px] mt-[25px] flex flex-col gap-[10px]'>
-            <CascaderInput label='Cài đặt thông báo' options={notify} defaultvalue='screen'  />
-            <CascaderInput label='Thông báo trước sự kiện' options={notifyBefore} defaultvalue='30'  />
-            <CascaderInput label='Bắt đầu tuần vào' options={weekStart} defaultvalue='monday'  />
-            <CascaderInput label='Hiển thị lịch các ngày lễ' options={holidayDisplay} defaultvalue='no'  />
+            <CascaderInput label='Cài đặt thông báo' options={notify} defaultvalue='screen' />
+            <CascaderInput label='Thông báo trước sự kiện' options={notifyBefore} defaultvalue='30' />
+            <CascaderInput label='Bắt đầu tuần vào' options={weekStart} defaultvalue='monday' />
+            <CascaderInput label='Hiển thị lịch các ngày lễ' options={holidayDisplay} defaultvalue='no' />
           </div>
         </div>
         <div className="submmit-button flex align-center justify-around mb-[30px]">
