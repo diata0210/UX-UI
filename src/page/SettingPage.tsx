@@ -105,10 +105,9 @@ export default function SettingPage({ }: Props) {
   return (
     <div
       className="  setting-container flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full h-[85vh] "
-
     >
       <div className='breadcrum relative'>
-        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] pt-[20px] ml-[0px]'>
+        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4]  ml-[0px]'>
           Cài đặt
         </div>
       </div>
