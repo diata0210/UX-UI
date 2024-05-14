@@ -1,8 +1,51 @@
+type Props = {}
+import { BarGraph } from "@/components/ui/barGraph";
 
 export default function HomePage({ }: Props) {
 
   const navigateToTask = () => {
     location.href = '/task'
+  };
+
+  const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "right" as const,
+        align : "start",
+        fullSize: true ,
+        labels: {
+          boxWidth: 10, // Độ rộng của hộp màu trong legend
+        }
+      },
+      title: {
+        display: false,
+        text: 'Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tuần qua',
+        font: {
+          size: 12
+        }
+      },
+    },
+  };
+  const getRandomNumber = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Thời gian dự kiến',
+        data: labels.map(() => getRandomNumber(0, 24)),
+        backgroundColor: '#9E54C8',
+      },
+      {
+        label: 'Thời gian thực tế',
+        data: labels.map(() => getRandomNumber(0, 24)),
+        backgroundColor: '#841FF2',
+      },
+    ],
+
   }
   return (
     <div className="flex flex-row gap-[54px] mt-[16px] w-full">
@@ -10,19 +53,9 @@ export default function HomePage({ }: Props) {
         <div className="flex flex-col gap-[10px]">
           <div className="flex flex-row items-start justify-between">
             <div className="w-[314px] h-[26px] text-gray-800 text-[22px] font-medium">Số giờ làm việc tuần vừa qua</div>
-            <div className="flex flex-col gap-1">
-              <div className="flex flex-row gap-1">
-                <div className="w-[18px] h-[18px] bg-[#841FF2]" />
-                <div className="text-black text-base font-normal">Thời gian thực tế</div>
-              </div>
-              <div className="flex flex-row gap-1">
-                <div className="w-[18px] h-[18px] bg-[#9E54C8]" />
-                <div className="text-black text-base font-normal">Thời gian thực tế</div>
-              </div>
-            </div>
           </div>
-          <div className="max-w-[697px]">
-            <img src="/graph.png" alt="/" />
+          <div className="max-w-[697px] ">
+            <BarGraph options={options} data={data} />
           </div>
         </div>
 
@@ -83,7 +116,7 @@ export default function HomePage({ }: Props) {
           <img src="/chart_1.png" alt="chart_1" />
           <img src="/chart_2.png" alt="chart_2" />
           <img src="/chart_3.png" alt="chart_3" />
-        </div>  
+        </div>
       </div>
     </div>
   )
