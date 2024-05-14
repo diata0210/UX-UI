@@ -1,0 +1,5 @@
+.ant-picker-input{
+  input::placeholder {
+    color: #1d2D35 !important;
+  }
+}

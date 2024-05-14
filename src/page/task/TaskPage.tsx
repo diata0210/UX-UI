@@ -7,19 +7,18 @@ import { Pagination, PaginationProps } from "antd"
 import { useState } from "react"
 
 type Props = {}
-
+const allTasks = Object.values(TASKS).flat();
 
 export default function TaskPage({ }: Props) {
 
   const [pageTask, setPageTask] = useState(TASKS[1]);
   const [valueStatus, setValueStatus] = useState(null);
-  const allTasks = Object.values(TASKS).flat();
 
   const onChange: PaginationProps['onChange'] = (pageNumber: number) => {
     let tasks = TASKS[pageNumber];
     setPageTask(tasks);
-    if(valueStatus){
-      setPageTask(allTasks.filter((task: any) => task.status == valueStatus).slice(6*(pageNumber-1), 6*pageNumber));
+    if (valueStatus) {
+      setPageTask(allTasks.filter((task: any) => task.status == valueStatus).slice(6 * (pageNumber - 1), 6 * pageNumber));
     }
   };
 
@@ -29,6 +28,12 @@ export default function TaskPage({ }: Props) {
     console.log(pageTask)
   }
 
+
+  const handleEditTask = (id: string) => {
+    console.log("edit task", id);
+    window.location.href = `/edit_task/${id}`;
+  }
+  
   return (
     <div className="flex flex-col gap-[60px]">
       <div className="flex flex-col gap-[40px] w-full">
@@ -54,17 +59,19 @@ export default function TaskPage({ }: Props) {
           </div>
 
           <div className="w-full gap-[45px] flex-wrap flex flex-row  justify-between">
-            {pageTask.map((task, index) => (
-              <TaskItem
-                key={index}
-                name={task.name}
-                status={task.status}
-                date={task.date}
-                time={task.time}
-                place={task.place}
-                number_file={task.number_file}
-              />
+            {pageTask.map((task) => (
+              <div key={task.id} onClick={() => handleEditTask(task.id)}>
+                <TaskItem
+                  name={task.name}
+                  status={task.status}
+                  date={task.date}
+                  time={task.time}
+                  place={task.place}
+                  number_file={task.number_file}
+                />
+              </div>
             ))}
+
           </div>
 
           <></>
@@ -77,7 +84,7 @@ export default function TaskPage({ }: Props) {
           showQuickJumper
           showTotal={(total) => `Total ${total} items`}
           onChange={onChange}
-          
+
         />
       </div>
     </div>

@@ -7,12 +7,16 @@ import FilterTypeCalendar from "./filter-type-calendar"
 type Props = {}
 
 export default function Header({}: Props) {
+
+  const handleAddTask = () => {
+    location.href = '/new_task';
+  }
   return (
     <div className="h-[100px] w-full  bg-white px-[38px] py-[19px] flex justify-between items-center shadow ">
       <div className="flex gap-[44px] items-center">
-        <Button variant="submit" className="">Thêm nhiệm vụ</Button>
+        <Button variant="submit" className="" onClick={handleAddTask}>Thêm nhiệm vụ</Button>
         <div className="2xl:text-[40px] xl:text-[34px] text-[30px] text-[#707293]">
-          Tháng 9 - 2077
+          Tháng 6- 2024
         </div>
       </div>
       <div className="flex height-[37px] gap-[31px] items-center">

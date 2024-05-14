@@ -1,8 +1,8 @@
 
-export default function HomePage({ }: Props) {
+export default function HomePage() {
 
   const navigateToTask = () => {
-    location.href = '/task'
+    location.href = '/new_task'
   }
   return (
     <div className="flex flex-row gap-[54px] mt-[16px] w-full">

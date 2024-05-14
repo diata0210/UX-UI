@@ -5,6 +5,7 @@ import App from './App.tsx'
 import { UIProvider } from './contexts/ui.context.tsx'
 import './styles/global.css'
 import './styles/index.css'
+import "./styles/plugin.css"
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
