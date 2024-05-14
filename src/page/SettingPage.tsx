@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import CascaderInput from "@/components/ui/cascaderInput";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 const language = [
   {
     value: 'vietnam',
@@ -102,6 +104,12 @@ const holidayDisplay = [
 type Props = {}
 
 export default function SettingPage({ }: Props) {
+  const handleSubmit = () => {
+    toast.success("Cập nhật thành công")
+  }
+  const handleReset = () => {
+    toast.success("Đã thiết lập lại cài đặt")
+  }
   return (
     <div
       className="flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full overscroll-y"
@@ -117,8 +125,12 @@ export default function SettingPage({ }: Props) {
 
             <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam' />
             <div className='format flex flex-row gap-[14px] w-full justify-between w-[200px]' >
-              <CascaderInput label='Định dạng' options={fomartDate} defaultvalue='MM/DD/YYYY' />
-              <CascaderInput label='Định dạng giờ' options={fomartTime} defaultvalue='12' />
+              <div className="w-1/2">
+                <CascaderInput label='Định dạng' options={fomartDate} defaultvalue='MM/DD/YYYY' />
+              </div>
+              <div className="w-1/2">
+                <CascaderInput label='Định dạng giờ' options={fomartTime} defaultvalue='12' />
+              </div>
             </div>
             <CascaderInput label='Quốc gia' options={country} defaultvalue='vietnam' />
             <CascaderInput label='Múi giờ' options={timezone} defaultvalue='+7' />
@@ -135,8 +147,8 @@ export default function SettingPage({ }: Props) {
           </div>
         </div>
         <div className="submmit-button flex align-center justify-around mb-[30px]">
-          <Button variant="destructive" className="text-white ">Đặt lại mặc định</Button>
-          <Button variant="submit" className="text-white " >Lưu thay đổi</Button>
+          <Button variant="destructive" onClick={handleReset} className="text-white ">Đặt lại mặc định</Button>
+          <Button variant="submit" onClick={handleSubmit} className="text-white " >Lưu thay đổi</Button>
         </div>
 
       </div>
