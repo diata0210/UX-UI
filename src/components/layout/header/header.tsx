@@ -27,8 +27,9 @@ export default function Header({}: Props) {
           <FilterTypeCalendar value="2"/>
         </div>
         <div className="">
-          <img src="/avatar.png" alt="avatar" className="object-cover rounded-full"/>
-          
+          <Link to={'/profile'}>
+            <img src="/avatar.png" alt="avatar" className="object-cover rounded-full"/>
+          </Link>
         </div>
       </div>
     </div>
