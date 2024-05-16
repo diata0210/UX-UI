@@ -12,7 +12,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Login from "../components/auth/login"
 import MainLayout from "../components/layout/main-layout"
 import HomePage from "../page/HomePage"
-
+import Profile from '@/page/Profile'
 
 function AllRoutes() {
 
@@ -37,6 +37,7 @@ function AllRoutes() {
       <Route path="/setting" element={<MainLayout><SettingPage /></MainLayout>}/>
       <Route path={`edit_task/${id}`} element={<MainLayout><EditTaskPage id={id} /></MainLayout>} />
       <Route path="/new_task" element={<MainLayout><AddTaskPage /></MainLayout>} />
+      <Route path="/profile" element={<MainLayout><Profile /></MainLayout>} />
     </Routes>
   )
 }
