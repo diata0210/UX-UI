@@ -33,6 +33,7 @@ const CascaderInput: React.FC<CascaderInputProps> = ({ label, options, defaultva
           height: '46px',
           width: `${width}`,
         }}
+        popupClassName='h-[80px]' 
         options={options}
         defaultValue={[defaultvalue]}
         showSearch={{ filter }}
