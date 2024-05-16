@@ -1,12 +1,10 @@
-import { useState } from "react"
 import { BarGraph } from "@/components/ui/barGraph";
 import { LineGraph } from "@/components/ui/lineGraph";
+import { useState } from "react";
 
 export default function EvaluationPage() {
 
   const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
- 
 
   const options = {
     responsive: true,
@@ -107,7 +105,7 @@ export default function EvaluationPage() {
           {timeDisplay === 'week' ?
             <>
               <div className='mx-auto font-medium text-[20px] max-w-[1000px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tuần qua</div>
-              <BarGraph options={options} data={data} />
+              <BarGraph options={options} data={data}/>
             </>
             :
             <>

@@ -21,12 +21,14 @@ ChartJS.register(
 interface BarGraphProps {
   options: any;
   data: any;
+  className?:string;
 }
 
-const BarGraph: React.FC<BarGraphProps> = ({ options, data }) => {
+const BarGraph: React.FC<BarGraphProps> = ({ options, data, className }) => {
   return (
-      <Bar options={options} data={data} />
+      <Bar options={options} data={data} className={className} />
   );
 }
 
 export { BarGraph };
+
