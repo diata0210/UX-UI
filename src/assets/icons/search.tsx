@@ -1,6 +1,6 @@
 export default function SearchIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 35 35" fill="none">
       <g filter="url(#filter0_d_609_4431)">
         <circle cx="17.5" cy="13.5" r="13.5" fill="white" />
       </g>
