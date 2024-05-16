@@ -1,0 +1,30 @@
+.rbc-event {
+  background-color: transparent;
+  padding: 0;
+}
+
+.rbc-event.rbc-selected{
+  background-color: transparent;
+  border: #2A3AFC 1px solid;
+
+}
+.rbc-row-content{
+  height: 100%;
+}
+
+
+.rbc-event-label{
+  color: #1D2D35;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.rbc-active {
+  background: #2A3AFC !important;
+  color: #ffffff !important;
+}
+
+.rbc-allday-cell{
+  background: #ffffff;
+}
+
