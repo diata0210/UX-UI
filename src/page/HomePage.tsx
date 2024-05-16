@@ -1,5 +1,7 @@
 import { BarGraph } from "@/components/ui/barGraph";
+import InfoIcon from '@/assets/icons/info';
 
+import { Tooltip } from "antd";
 export default function HomePage() {
 
   const navigateToTask = () => {
@@ -51,11 +53,18 @@ export default function HomePage() {
       <div className="flex flex-col gap-[20px] max-w-[697px]">
         <div className="flex flex-col gap-[10px] w-full ">
           <div className="flex flex-row items-start justify-between">
-            <div className=" text-gray-800 text-[22px] font-semibold">Số giờ làm việc tuần vừa qua</div>
-          </div>
-            <div className="h-[260px] w-full flex items-center justify-center">
-              <BarGraph options={options} data={data} />
+            <div className="text-gray-800 text-[22px] font-semibold">
+              Số giờ làm việc tuần vừa qua
+            </div>
+            <Tooltip title="Tổng số giờ mà bạn đã dành cho nhiệm vụ trong khoảng thời gian một tuần gần nhất.">
+              <div className="relative" style={{ top: '5px', right: '325px' }}>
+                <InfoIcon />
               </div>
+            </Tooltip>
+          </div>
+          <div className="h-[260px] w-full flex items-center justify-center">
+            <BarGraph options={options} data={data} />
+          </div>
         </div>
 
         <div className="flex flex-row gap-[27px] justify-between items-center">
@@ -101,7 +110,13 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-[23px] w-2/5">
-            <p className="text-gray-800 text-[22px] font-semibold ">Cây của tôi</p>
+            <p className="text-gray-800 text-[22px] font-semibold ">Cây của tôi
+              <Tooltip title="Với mỗi cây bạn trồng được trong ứng dụng chúng tôi sẽ thay bạn trồng 1 cây ngoài đời. Vì vậy hãy cùng nhau bảo vệ môi trường nào">
+                <div className="relative" style={{ bottom: '5px' }}>
+                  <InfoIcon />
+                </div>
+              </Tooltip>
+            </p>
             <img src='/tree.png' alt="" />
           </div>
         </div>

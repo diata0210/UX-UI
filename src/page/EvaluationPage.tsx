@@ -86,11 +86,11 @@ export default function EvaluationPage() {
       className="  setting-container flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] min-h-[80vh] w-full "
     >
       <div className='breadcrum relative'>
-        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] '>
+        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-blue-500 text-4xl font-inter '>
           Đánh giá
         </div>
       </div>
-      <div className="content w-full relative  flex flex-col gap-[15px] mt-[10px] ">
+      <div className="content w-full relative  flex flex-col gap-[15px] mt-[10px]  " style={{ top: '20px' }}>
         <div>
           
             <Radio.Group value={size} onChange={(e) => {setTimeDisplay(e.target.value), setSize(e.target.value)}}>
