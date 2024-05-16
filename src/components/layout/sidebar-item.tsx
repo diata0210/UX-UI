@@ -54,9 +54,13 @@ export default function SidebarItem({
         animate={isActive === true ?
           {
             backgroundColor: '#B4E6FF',
+            border: "none",
+            outline: "none",
           } : { backgroundColor: '#FFF' }
 
         }
+
+        transition={{ duration: 0.2 }}
       >
 
         <div className="flex items-center gap-[20px] px-[30px] py-[6px]">

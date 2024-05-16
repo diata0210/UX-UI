@@ -5,8 +5,8 @@ type Props = {
 }
 
 export default function FlagIcon({ 
-  width, 
-  height,
+  width = "13", 
+  height = "13",
 }: Props) {
   return (
     <svg width={width} height={height} viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">

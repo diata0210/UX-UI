@@ -54,6 +54,7 @@ export default function AddEditTaskPage({
 
   const onSubmit = (data: any) => {
     console.log("data",data);
+    location.href = '/task';
   }
 
   const handleBack = () => {

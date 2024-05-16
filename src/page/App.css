@@ -1,22 +1,24 @@
 .rbc-event {
   background-color: transparent;
   padding: 0;
+  border: none !important;
 }
 
 .rbc-event.rbc-selected{
   background-color: transparent;
-  border: #2A3AFC 1px solid;
+  border: none;
 
 }
 .rbc-row-content{
   height: 100%;
+  border: none;
 }
-
 
 .rbc-event-label{
   color: #1D2D35;
   padding-right: 2px;
   padding-left: 2px;
+  display: none;
 }
 
 .rbc-active {
