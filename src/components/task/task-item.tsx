@@ -12,8 +12,7 @@ type Props = {
   place: string;
   required?: boolean;
   number_file?: number;
-
-}
+};
 
 export default function TaskItem({
   name,
@@ -22,10 +21,14 @@ export default function TaskItem({
   time,
   place,
   required = true,
-  number_file = 0
+  number_file = 0,
 }: Props) {
   return (
-    <div className={`px-[22px] pt-[13px] pb-[8px] rounded-[15px] w-[288px] h-[146px] ${status == '1' ? 'bg-[#FCD1D3]' : 'bg-[#9FD0FD]'}`}>
+    <div
+      className={`px-[22px] pt-[13px] pb-[8px] rounded-[15px] w-[288px] h-[146px] ${
+        status == "1" ? "bg-[#FCD1D3]" : "bg-[#9FD0FD]"
+      }`}
+    >
       <div className="flex flex-col gap-[10px]">
         <div className="flex flex-row justify-between items-center">
           <span className="text-xl font-medium ">{name}</span>
@@ -33,7 +36,10 @@ export default function TaskItem({
         </div>
         <div>
           <Badge variant={status == "1" ? "progressing" : "completed"}>
-            <span className="text-sm"> {status == '1' ? "Chưa hoàn thành" : "Đã hoàn thành"}</span>
+            <span className="text-sm">
+              {" "}
+              {status == "1" ? "Chưa hoàn thành" : "Đã hoàn thành"}
+            </span>
           </Badge>
         </div>
         <div className="flex flex-row justify-between items-center">
@@ -49,14 +55,23 @@ export default function TaskItem({
         </div>
 
         <div className="flex flex-row justify-between items-center ">
-          <div className="w-[58px] flex flex-row items-center bg-rose-200 rounded-sm shadow ">
-            <AttachIcon />
-            <span className="text-base font-medium pb-[2px]">{number_file}</span>
+          <div className="w-[45px] flex flex-row justify-around items-center bg-[#9fd0fd] rounded-sm shadow "
+            style={{ boxShadow: "0px 0.5069931149482727px 4px 0 rgba(0,0,0,0.15)" }}
+          >
+            
+            <span className="text-base font-medium  flex flex row items-center ">
+              <AttachIcon />
+              {number_file}
+            </span>
             {required && <FlagIcon width="16" height="16" />}
           </div>
-          <img src='avatar.png' alt="avt" className="w-[30px] h-[30px]" />
+          <img
+            src="image.png"
+            alt="avt"
+            className="w-[30px] h-[30px] rounded-full"
+          />
         </div>
       </div>
     </div>
-  )
+  );
 }

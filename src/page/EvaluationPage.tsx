@@ -1,9 +1,11 @@
 import { BarGraph } from "@/components/ui/barGraph";
 import { LineGraph } from "@/components/ui/lineGraph";
 import { useState } from "react";
+import {  Radio } from 'antd';
 
+type SizeType = {};
 export default function EvaluationPage() {
-
+  const [size, setSize] = useState<SizeType>('week'); // default is 'middle'
   const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   const options = {
@@ -77,12 +79,6 @@ export default function EvaluationPage() {
 
   const [timeDisplay, setTimeDisplay] = useState('week')
 
-  const handleTimeMDisplay = () => (
-    setTimeDisplay('month')
-  )
-  const handleTimeWDisplay = () => (
-    setTimeDisplay('week')
-  )
 
 
   return (
@@ -96,10 +92,11 @@ export default function EvaluationPage() {
       </div>
       <div className="content w-full relative  flex flex-col gap-[15px] mt-[10px] ">
         <div>
-          <div className='flex flex-row items-center overflow-hidden  w-[180px] h-[40px] rounded-[10px] bg-white  border-2 border-solid border-black'>
-            <div key={'week'} onClick={handleTimeWDisplay} className='w-1/2 h-full flex items-center justify-center ' style={timeDisplay === 'week' ? { background: '#F1F1F1' } : {}}>Tuần</div>
-            <div key={'month'} onClick={handleTimeMDisplay} className='w-1/2 h-full flex items-center justify-center ' style={timeDisplay === 'month' ? { background: '#F1F1F1' } : {}}>Tháng</div>
-          </div>
+          
+            <Radio.Group value={size} onChange={(e) => {setTimeDisplay(e.target.value), setSize(e.target.value)}}>
+              <Radio.Button value="week">Tuần</Radio.Button>
+              <Radio.Button value="month">Tháng</Radio.Button>
+            </Radio.Group>
         </div>
         <div className=' w-4/5 mx-auto flex justify-center flex-col  '>
           {timeDisplay === 'week' ?

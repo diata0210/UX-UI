@@ -14,7 +14,7 @@ export default function HomePage() {
         position: "bottom" as const,
         align: "left",
         labels: {
-          boxWidth: 10,
+          boxWidth: 20,
         }
       },
       title: {
@@ -51,7 +51,7 @@ export default function HomePage() {
       <div className="flex flex-col gap-[20px] max-w-[697px]">
         <div className="flex flex-col gap-[10px] w-full ">
           <div className="flex flex-row items-start justify-between">
-            <div className=" text-gray-800 text-[22px] font-medium">Số giờ làm việc tuần vừa qua</div>
+            <div className=" text-gray-800 text-[22px] font-semibold">Số giờ làm việc tuần vừa qua</div>
           </div>
             <div className="h-[260px] w-full flex items-center justify-center">
               <BarGraph options={options} data={data} />
@@ -61,8 +61,8 @@ export default function HomePage() {
         <div className="flex flex-row gap-[27px] justify-between items-center">
           <div className="flex flex-col gap-[12px] w-3/5 shadow-lg rounded-[20px]">
             <div className="flex flex-row justify-between items-center w-full">
-              <p className="text-slate-700 text-[22px] font-medium">Hoạt động gần đây</p>
-              <p className="text-slate-700 text-[18px] font-[400] hover:text-accent-700" onClick={navigateToTask}>Xem tất cả</p>
+              <p className="text-slate-700 text-[22px] font-semibold">Hoạt động gần đây</p>
+              <p className="text-slate-700 text-[14px] font-[400] hover:text-accent-700 pr-[10px]" onClick={navigateToTask}>Xem tất cả</p>
             </div>
 
             <div className=" bg-white rounded-[20px] shadow max-h-[228px] overflow-y-scroll py-[16px] px-[21px] flex flex-col gap-[24px]">
@@ -101,7 +101,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-[23px] w-2/5">
-            <p className="text-gray-800 text-[22px] font-medium ">Cây của tôi</p>
+            <p className="text-gray-800 text-[22px] font-semibold ">Cây của tôi</p>
             <img src='/tree.png' alt="" />
           </div>
         </div>
