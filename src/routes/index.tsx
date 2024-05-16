@@ -1,3 +1,4 @@
+import ChangePassWord from '@/components/auth/change-password'
 import Register from '@/components/auth/register'
 import CalendarPage from '@/page/CalendarPage'
 import EvaluationPage from '@/page/EvaluationPage'
@@ -27,6 +28,7 @@ function AllRoutes() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register/>} />
+      <Route path="/change-password" element={<ChangePassWord/>} />
       <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
       <Route path="/calendar" element={<MainLayout><CalendarPage /></MainLayout>}/>
       <Route path="/task" element={<MainLayout><TaskPage /></MainLayout>}/>
