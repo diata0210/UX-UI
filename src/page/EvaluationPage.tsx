@@ -34,13 +34,13 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#0BE02D',
+        backgroundColor: '#4EB9EA',
 
       },
       {
         label: 'Thời gian thực tế',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#841FF2',
+        backgroundColor: '#116783',
       },
     ],
   };
@@ -67,14 +67,14 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labelsLine.map(() => getRandomNumber(20, 100)),
-        borderColor: '#0BE02D',
-        backgroundColor: '#9E54C8',
+        borderColor: '#4EB9EA',
+        backgroundColor: '#4EB9EA',
       },
       {
         label: 'Thời gian thực tế',
         data: labelsLine.map(() => getRandomNumber(20, 100)),
-        borderColor: '#841FF2',
-        backgroundColor: '#841FF2',
+        borderColor: '#116783',
+        backgroundColor: '#116783',
       },
     ],
   };
