@@ -57,7 +57,7 @@ export default function HomePage() {
               Số giờ làm việc tuần vừa qua
             </div>
             <Tooltip title="Tổng số giờ mà bạn đã dành cho nhiệm vụ trong khoảng thời gian một tuần gần nhất.">
-                <InfoIcon />
+                <div className='relative'><InfoIcon /></div>
             </Tooltip>
           </div>
           <div className="h-[260px] w-full flex items-center justify-center">
