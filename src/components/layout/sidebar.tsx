@@ -1,7 +1,6 @@
 import { SIDEBAR } from "@/utils/constants/mockData";
 import { useEffect, useState } from "react";
 import { useLocation } from 'react-router-dom';
-import { Button } from "../ui/button";
 import SidebarItem from "./sidebar-item";
 
 type Props = {}
@@ -36,9 +35,6 @@ export default function Sidebar({}: Props) {
             ))
           }
         </div>
-      </div>
-      <div className="w-full flex justify-center">
-        <Button variant="destructive" className="text-white ">Đăng xuất</Button>
       </div>
     </div>
   )

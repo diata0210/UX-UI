@@ -40,7 +40,7 @@ export default function PopupHelp({ setPopup }: Props) {
   return (
     <>
       <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-        <div className="items-end px-11 pt-9 pb-9 text-lg font-medium text-gray-800 bg-white rounded-2xl shadow-sm  w-[536px] max-md:px-5">
+        <div className="items-end px-11 pt-9 pb-20 text-lg font-medium text-gray-800 bg-white rounded-2xl shadow-sm w-[536px] max-md:px-5">
           <header className="flex flex-row text-3xl text-black justify-between w-full">
             <div className="text-[26px] font-medium text-[#1d2d35]">
               Bạn cần trợ giúp gì?
@@ -79,7 +79,7 @@ export default function PopupHelp({ setPopup }: Props) {
             </div>
           </div>
 
-          <div className="w-full flex flex-row justify-end mt-[40px] hover:opacity-90">
+          <div className="w-full flex flex-row justify-end mt-[20px] hover:opacity-90">
             <Button variant="submit" onClick={handleSubmit}>Gửi</Button>
           </div>
         </div>
