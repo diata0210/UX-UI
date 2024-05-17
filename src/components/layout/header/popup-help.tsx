@@ -2,9 +2,11 @@ type Props = {
   setPopup: (visible: boolean) => void;
   // isVisible: boolean;
 };
+import { Button } from "@/components/ui/button";
 import { InboxOutlined } from "@ant-design/icons";
 import type { UploadProps } from "antd";
 import { Input, message, Upload } from "antd";
+import { toast } from "react-toastify";
 
 const { Dragger } = Upload;
 const { TextArea } = Input;
@@ -29,6 +31,11 @@ export default function PopupHelp({ setPopup }: Props) {
       console.log("Dropped files", e.dataTransfer.files);
     },
   };
+
+  const handleSubmit= () => {
+    setPopup(false);
+    toast.success("Gửi thành công")
+  }
 
   return (
     <>
@@ -70,6 +77,10 @@ export default function PopupHelp({ setPopup }: Props) {
                 </Dragger>
               </div>
             </div>
+          </div>
+
+          <div className="w-full flex flex-row justify-end mt-[20px] hover:opacity-90">
+            <Button variant="submit" onClick={handleSubmit}>Gửi</Button>
           </div>
         </div>
       </section>
