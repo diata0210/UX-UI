@@ -102,19 +102,18 @@ export default function EvaluationPage() {
             <Radio.Button value="month">Tháng</Radio.Button>
           </Radio.Group>
         </div>
-        <div className=' w-4/5 mx-auto flex justify-center flex-col  '>
+        <div className='w-full mx-auto flex justify-between flex-col '>
           {timeDisplay === 'week' ?
             <>
-              <div className="flex flex-row gap-[60px]">
-                <div className="w-[850px]">
-                  <div className='mx-auto font-medium text-[20px] max-w-[1000px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tuần qua</div>
+              <div className="flex flex-row gap-[60px] items-center">
+                <div className="max-w-[850px] ">
+                  <div className='mx-auto font-medium text-[20px] w-full mb-[20px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tuần qua</div>
                   <BarGraph options={options} data={data} />
 
                 </div>
                 <div className="flex flex-col gap-[50px] w-[350px]">
                   <img src="/report1.png" alt="warning" />
                   <img src="/report2.png" alt="khen" />
-
                 </div>
 
               </div>
@@ -122,8 +121,19 @@ export default function EvaluationPage() {
             </>
             :
             <>
-              <div className='mx-auto font-medium text-[20px] max-w-[1000px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tháng qua</div>
-              <LineGraph options={optionsLine} data={dataLine} />
+
+              <div className="flex flex-row gap-[60px] items-center">
+                <div className="max-w-[850px]">
+                <div className='mx-auto font-medium text-[20px] w-full mb-[20px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tháng qua</div>
+                <LineGraph options={optionsLine} data={dataLine} />
+
+                </div>
+                <div className="flex flex-col gap-[50px] w-[350px]">
+                  <img src="/report1.png" alt="warning" />
+                  <img src="/report2.png" alt="khen" />
+                </div>
+
+              </div>
             </>
           }
 
