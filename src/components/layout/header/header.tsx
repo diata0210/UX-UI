@@ -5,10 +5,18 @@ import { Button } from "../../ui/button";
 import { Dropdown } from "antd";
 import type { MenuProps } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import PopupHelp from "./popup-help";
 
 type Props = {};
 
 export default function Header({}: Props) {
+
+  const [popupHelp, setPopupHelp] = useState(false)
+  const handlePopupHelp = () => {
+    setPopupHelp(true)
+  }
+
   const items: MenuProps["items"] = [
     {
       label: (
@@ -54,7 +62,10 @@ export default function Header({}: Props) {
         </div>
         <div className="flex gap-[15px] justify-center">
           <SearchIcon />
-          <ContactIcon height={40} width={40} />
+          <div onClick={handlePopupHelp}>
+            <ContactIcon height={40} width={40} />
+          </div>
+          {popupHelp && <PopupHelp setPopup={setPopupHelp}  />}
         </div>
 
         <div className="">
