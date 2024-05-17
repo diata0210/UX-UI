@@ -55,11 +55,11 @@ export default function TaskItem({
         </div>
 
         <div className="flex flex-row justify-between items-center ">
-          <div className="w-[45px] flex flex-row justify-around items-center bg-[#9fd0fd] rounded-sm shadow "
+          <div className="w-[45px] flex flex-row justify-around items-center rounded-sm shadow "
             style={{ boxShadow: "0px 0.5069931149482727px 4px 0 rgba(0,0,0,0.15)" }}
           >
             
-            <span className="text-base font-medium  flex flex row items-center ">
+            <span className="text-base font-medium flex  row items-center ">
               <AttachIcon />
               {number_file}
             </span>
