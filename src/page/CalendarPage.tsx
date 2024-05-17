@@ -22,29 +22,31 @@ export default function CalendarPage({ }: Props) {
 
       if (view === "week") {
         return (
-          <div className={`${props.event.status === 2 ? "bg-[#FCD1D3]" : "bg-[#9FD0FD]"} h-full py-[6px] rounded-[8px]`}>
+          <div className={`${props.event.status === 2 ?  "bg-[#9FD0FD]" : "bg-[#FCD1D3]" } h-full py-[6px] rounded-[8px]`}>
             <div className="flex flex-col gap-[10px]">
               <div className="border-b-[1px] border-[#E6ECF0] flex flex-col pl-[6px] pr-[17px] gap-[6px]">
                 <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">{props.event.title}</div>
-                <Badge variant="progressing">Chưa hoàn thành</Badge>
-              </div>
+                <Badge variant={props.event.status == "2" ? "completed" : "progressing"} className="w-fit">
+                  {props.event.status == "2" ? "Đã hoàn thành" : "Chưa hoàn thành"}
+                </Badge>              
+                </div>
 
               <div className="flex flex-row px-[6px] items-center justify-between">
-                <div className="flex items-center gap-[6px]">
-                  <div className="flex flex-row gap-[6px]">
+                <div className="flex items-center gap-[4px]">
+                  <div className="flex flex-row gap-[2px] items-center">
                     <AttachIcon />
                     <div className="text-gray-800 text-sm font-medium">{props.event.data.x}</div>
                   </div>
 
                   <FlagIcon />
 
-                  <div className="flex flex-row items-center gap-[4px]">
+                  <div className="flex flex-row items-center gap-[2px]">
                     <ClockIcon />
                     <div className="text-center text-gray-800 text-xs font-bold">May 16</div>
                   </div>
                 </div>
 
-                <img src="/avatar.png" alt="avt" className="w-[16px] h-[16px]" />
+                <img src="/avt.png" alt="avt" className="w-[16px] h-[16px]" />
               </div>
             </div>
           </div>
@@ -53,11 +55,13 @@ export default function CalendarPage({ }: Props) {
 
       else if (view === "day") {
         return (
-          <div className={`${props.event.status === 2 ? "bg-[#FCD1D3]" : "bg-[#9FD0FD]"} h-full py-[6px] rounded-[8px] w-full`}>
+          <div className={`${props.event.status === 2 ? "bg-[#9FD0FD]": "bg-[#FCD1D3]" } h-full py-[6px] rounded-[8px] w-full`}>
             <div className="flex flex-col gap-[10px] w-full">
               <div className="border-b-[1px] border-[#E6ECF0] flex flex-col pl-[6px] pr-[17px] gap-[6px]">
                 <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">{props.event.title}</div>
-                <Badge variant="progressing" className="w-fit">Chưa hoàn thành</Badge>
+                <Badge variant={props.event.status == "2" ? "completed" : "progressing"} className="w-fit">
+                  {props.event.status == "2" ? "Đã hoàn thành" : "Chưa hoàn thành"}
+                </Badge>  
               </div>
 
               <div className="flex flex-row px-[6px] items-center justify-between w-full">
@@ -73,7 +77,7 @@ export default function CalendarPage({ }: Props) {
                   </div>
                 </div>
 
-                <img src="/avatar.png" alt="avt" className="w-[16px] h-[16px]" />
+                <img src="/avt.png" alt="avt" className="w-[16px] h-[16px]" />
               </div>
             </div>
           </div>
@@ -82,7 +86,7 @@ export default function CalendarPage({ }: Props) {
 
       else {
         return (
-          <div className={`${props.event.status === 2 ? "text-[#FE2E00]" : "text-[#0013FE]"} px-[20px] text-[14px] relative` }>
+          <div className={`${props.event.status === 2 ?  "text-[#0013FE]" : "text-[#FE2E00]"} px-[20px] text-[14px] relative`}>
             <span className="position top-2 mr-[4px]">.</span>
             {props.event.title}
           </div>
@@ -102,18 +106,18 @@ export default function CalendarPage({ }: Props) {
       status: 2
     },
     {
-      start: dayjs("2024-05-16T14:00:00").toDate(),
-      end: dayjs("2024-05-16T15:30:00").toDate(),
-      title: "Learn HTML/CSS",
+      start: dayjs("2024-05-17T12:00:00").toDate(),
+      end: dayjs("2024-05-17T13:30:00").toDate(),
+      title: "Nhật",
       data: {
-        x: 10,
+        x: 20,
       },
-      status: 2
+      status: 1
     },
     {
-      start: dayjs("2024-05-17T12:00:00").toDate(),
-      end: dayjs("2024-05-17T13:00:00").toDate(),
-      title: "Nhật",
+      start: dayjs("2024-05-17T14:00:00").toDate(),
+      end: dayjs("2024-05-17T15:30:00").toDate(),
+      title: "UX-UI",
       data: {
         x: 20,
       },

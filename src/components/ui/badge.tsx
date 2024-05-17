@@ -9,7 +9,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default: "text-default",
-        completed: "bg-[#0BE02D] text-white",
+        completed: "bg-[#727e8a] text-white",
         progressing: "bg-accent-900 text-white",
       },
       size: {

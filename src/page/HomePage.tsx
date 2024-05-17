@@ -1,9 +1,11 @@
+import InfoIcon from '@/assets/icons/info';
 import { BarGraph } from "@/components/ui/barGraph";
 
+import { Tooltip } from "antd";
 export default function HomePage() {
 
   const navigateToTask = () => {
-    location.href = '/new_task'
+    location.href = '/task'
   };
 
   const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -35,12 +37,12 @@ export default function HomePage() {
       {
         label: 'Thời gian dự kiến',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#9E54C8',
+        backgroundColor: '#4EB9EA',
       },
       {
         label: 'Thời gian thực tế',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#841FF2',
+        backgroundColor: '#116783',
       },
     ],
 
@@ -50,18 +52,23 @@ export default function HomePage() {
     <div className="flex flex-row gap-[54px] mt-[16px] w-full">
       <div className="flex flex-col gap-[20px] max-w-[697px]">
         <div className="flex flex-col gap-[10px] w-full ">
-          <div className="flex flex-row items-start justify-between">
-            <div className=" text-gray-800 text-[22px] font-semibold">Số giờ làm việc tuần vừa qua</div>
+          <div className="flex flex-row gap-[8px] items-center">
+            <div className="text-gray-800 text-[22px] font-medium">
+              Số giờ làm việc tuần vừa qua
+            </div>
+            <Tooltip title="Tổng số giờ mà bạn đã dành cho nhiệm vụ trong khoảng thời gian một tuần gần nhất.">
+                <InfoIcon />
+            </Tooltip>
           </div>
-            <div className="h-[260px] w-full flex items-center justify-center">
-              <BarGraph options={options} data={data} />
-              </div>
+          <div className="h-[260px] w-full flex items-center justify-center">
+            <BarGraph options={options} data={data} />
+          </div>
         </div>
 
         <div className="flex flex-row gap-[27px] justify-between items-center">
           <div className="flex flex-col gap-[12px] w-3/5 shadow-lg rounded-[20px]">
             <div className="flex flex-row justify-between items-center w-full">
-              <p className="text-slate-700 text-[22px] font-semibold">Hoạt động gần đây</p>
+              <p className="text-slate-700 text-[22px] font-medium">Hoạt động gần đây</p>
               <p className="text-slate-700 text-[14px] font-[400] hover:text-accent-700 pr-[10px]" onClick={navigateToTask}>Xem tất cả</p>
             </div>
 
@@ -101,7 +108,14 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-[23px] w-2/5">
-            <p className="text-gray-800 text-[22px] font-semibold ">Cây của tôi</p>
+            <div className="flex flex-row items-center gap-[8px]">
+              <p className="text-gray-800 text-[22px] font-medium ">Cây của tôi</p>
+                <Tooltip title="Với mỗi cây bạn trồng được trong ứng dụng chúng tôi sẽ thay bạn trồng 1 cây ngoài đời. Vì vậy hãy cùng nhau bảo vệ môi trường nào">
+                  <div className="relative">
+                    <InfoIcon />
+                  </div>
+                </Tooltip>
+            </div>
             <img src='/tree.png' alt="" />
           </div>
         </div>

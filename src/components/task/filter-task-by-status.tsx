@@ -1,4 +1,4 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import { Select } from "antd";
 
 type Props = {
   defautValue?: string;
@@ -8,23 +8,19 @@ type Props = {
 }
 
 export default function FilterByTaskStatus({
-  defautValue,
   onChange,
   value
 }: Props) {
 
   console.log(value);
   return (
-      <Select defaultValue={defautValue} value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-[300px] h-full bg-white rounded shadow">
-          <SelectValue className="rounded-[15px] shadow" placeholder={defautValue === "1" ? "Chưa hoàn thành" : defautValue === "2" ? "Đã hoàn thành" : "Lọc theo trạng thái"}>
-          </SelectValue>
-        </SelectTrigger>
-        <SelectContent className="bg-white rounded-[10px] border border-neutral-400">
-          <SelectItem value="1" className=" text-gray-800 text-xl font-normal hover:opacity-90">Chưa hoàn thành</SelectItem>
-          <SelectItem value="2" className=" text-gray-800 text-xl font-normal hover:opacity-90">Đã hoàn thành</SelectItem>
-        </SelectContent>
+      <Select 
+        onChange={onChange} 
+        className="bg-white rounded-[10px] w-[300px] h-[40px] border-[#000]"
+        placeholder="Lọc theo trạng thái"
+        > 
+          <Select.Option value="1" className=" text-gray-800 text-xl font-normal hover:opacity-90">Chưa hoàn thành</Select.Option>
+          <Select.Option value="2" className=" text-gray-800 text-xl font-normal hover:opacity-90">Đã hoàn thành</Select.Option>
       </Select>
-
   )
 }

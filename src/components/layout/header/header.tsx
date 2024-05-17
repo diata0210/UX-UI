@@ -1,11 +1,11 @@
 import ContactIcon from "@/assets/icons/contact";
 import SearchIcon from "@/assets/icons/search";
+import { LogoutOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Dropdown } from "antd";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
-import { Dropdown } from "antd";
-import type { MenuProps } from "antd";
-import { LogoutOutlined } from "@ant-design/icons";
-import { useState } from "react";
 import PopupHelp from "./popup-help";
 
 type Props = {};
@@ -75,11 +75,11 @@ export default function Header({}: Props) {
               onClick={(e) => e.preventDefault()}
             >
               <img
-                src="/image.png"
+                src="/avt.png"
                 alt="avatar"
                 className="object-cover rounded-full size-[60px] "
               />
-              <p className="font-semibold text-2xl">User Name</p>
+              <p className="font-semibold text-2xl">Wind Bean</p>
             </a>
           </Dropdown>
         </div>

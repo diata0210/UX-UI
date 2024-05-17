@@ -1,7 +1,7 @@
 import { BarGraph } from "@/components/ui/barGraph";
 import { LineGraph } from "@/components/ui/lineGraph";
+import { Radio } from 'antd';
 import { useState } from "react";
-import {  Radio } from 'antd';
 
 type SizeType = {};
 export default function EvaluationPage() {
@@ -13,6 +13,9 @@ export default function EvaluationPage() {
     plugins: {
       legend: {
         position: "bottom" as const,
+        labels: {
+          boxWidth: 20,
+        }
       },
       title: {
         display: false,
@@ -31,17 +34,18 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#9E54C8',
+        backgroundColor: '#4EB9EA',
+
       },
       {
         label: 'Thời gian thực tế',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#841FF2',
+        backgroundColor: '#116783',
       },
     ],
   };
 
- const labelsLine = ['1', '5', '10', '15', '20', '25', '30']
+  const labelsLine = ['1', '5', '10', '15', '20', '25', '30']
 
   const optionsLine = {
     responsive: true,
@@ -58,19 +62,19 @@ export default function EvaluationPage() {
   };
 
   const dataLine = {
-    labels : labelsLine,
+    labels: labelsLine,
     datasets: [
       {
         label: 'Thời gian dự kiến',
         data: labelsLine.map(() => getRandomNumber(20, 100)),
-        borderColor: '#9E54C8',
-        backgroundColor: '#9E54C8',
+        borderColor: '#4EB9EA',
+        backgroundColor: '#4EB9EA',
       },
       {
         label: 'Thời gian thực tế',
         data: labelsLine.map(() => getRandomNumber(20, 100)),
-        borderColor: '#841FF2',
-        backgroundColor: '#841FF2',
+        borderColor: '#116783',
+        backgroundColor: '#116783',
       },
     ],
   };
@@ -86,28 +90,40 @@ export default function EvaluationPage() {
       className="  setting-container flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] min-h-[80vh] w-full "
     >
       <div className='breadcrum relative'>
-        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] '>
+        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-blue-500 text-4xl font-inter '>
           Đánh giá
         </div>
       </div>
       <div className="content w-full relative  flex flex-col gap-[15px] mt-[10px] ">
         <div>
-          
-            <Radio.Group value={size} onChange={(e) => {setTimeDisplay(e.target.value), setSize(e.target.value)}}>
-              <Radio.Button value="week">Tuần</Radio.Button>
-              <Radio.Button value="month">Tháng</Radio.Button>
-            </Radio.Group>
+
+          <Radio.Group value={size} onChange={(e) => { setTimeDisplay(e.target.value), setSize(e.target.value) }}>
+            <Radio.Button value="week">Tuần</Radio.Button>
+            <Radio.Button value="month">Tháng</Radio.Button>
+          </Radio.Group>
         </div>
         <div className=' w-4/5 mx-auto flex justify-center flex-col  '>
           {timeDisplay === 'week' ?
             <>
-              <div className='mx-auto font-medium text-[20px] max-w-[1000px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tuần qua</div>
-              <BarGraph options={options} data={data}/>
+              <div className="flex flex-row gap-[60px]">
+                <div className="w-[850px]">
+                  <div className='mx-auto font-medium text-[20px] max-w-[1000px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tuần qua</div>
+                  <BarGraph options={options} data={data} />
+
+                </div>
+                <div className="flex flex-col gap-[50px] w-[350px]">
+                  <img src="/report1.png" alt="warning" />
+                  <img src="/report2.png" alt="khen" />
+
+                </div>
+
+              </div>
+
             </>
             :
             <>
               <div className='mx-auto font-medium text-[20px] max-w-[1000px]'>Sơ đồ biểu diễn thời gian hoàn thành task dự kiến và thực tế trong tháng qua</div>
-              <LineGraph options={optionsLine} data={dataLine}/>
+              <LineGraph options={optionsLine} data={dataLine} />
             </>
           }
 

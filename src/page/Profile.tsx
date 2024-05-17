@@ -1,9 +1,9 @@
+import BackIcon from "@/assets/icons/back";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BackIcon from "@/assets/icons/back";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
 
 interface InputProps {
@@ -105,12 +105,12 @@ export default function Profile({}: Props) {
             </p>
           </div>
           <div className="content">
-            <div className="header flex flex-row border-b-2 border-solid border-black">
+            <div className="header flex flex-row border-b-2 border-solid border-[#82ccf1]">
               <div
                 onClick={handleOp1}
                 className={`text-[20px] flex justify-center w-[200px] ${
                   selected === "op1"
-                    ? "text-black border-b-4 border-solid border-[#5263FF]"
+                    ? "text-[#1D2D35] border-b-4 border-solid border-[#307ba7]"
                     : ""
                 }`}
               >
@@ -129,10 +129,10 @@ export default function Profile({}: Props) {
             </div>
             <div>
               {selected === "op1" ? (
-                <div className="flex flex-row gap-[30px]">
+                <div className="flex flex-row gap-[30px] items-start">
                   <div className="avatar ml-[55px] flex flex-col w-[200px] justify-center items-center">
                     <div className="mt-[62px]">
-                      <img src="/image.png" alt="avatar nè" />
+                      <img src="/avt.png" alt="avatar nè" />
                     </div>
                     <div>
                       <div
@@ -205,15 +205,15 @@ export default function Profile({}: Props) {
                   <Button
                     onClick={handleLink}
                     variant="submit"
-                    className="text-white self-end text-[30px] font-medium gap-2.5 p-2.5 w-[414px]"
+                    className="text-white self-end text-[28px] h-[54px] font-medium gap-2.5 p-2.5 w-[414px]"
                   >
                     Liên kết các tài khoản khác
                   </Button>
                   {popup && (
                     <>
                       <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                        <div className="flex flex-col items-end px-11 pt-9 pb-20 text-lg font-medium text-gray-800 bg-white rounded-2xl shadow-sm max-w-[536px] max-md:px-5">
-                          <header className="flex gap-5 items-start self-start text-3xl font-semibold text-black">
+                        <div className="flex flex-col items-end px-11 pt-9 pb-20 text-lg font-medium #1D2D35 bg-white rounded-2xl shadow-sm max-w-[536px] max-md:px-5">
+                          <header className="flex gap-5 items-start self-start text-3xl font-semibold #1D2D35">
                             <img
                               loading="lazy"
                               onClick={handleBackPopup}

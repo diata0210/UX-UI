@@ -2,12 +2,13 @@ type Props = {
   setPopup: (visible: boolean) => void;
   // isVisible: boolean;
 };
+import { Button } from "@/components/ui/button";
 import { InboxOutlined } from "@ant-design/icons";
 import type { UploadProps } from "antd";
-import { message, Upload } from "antd";
+import { Input, message, Upload } from "antd";
+import { toast } from "react-toastify";
 
 const { Dragger } = Upload;
-import { Input } from "antd";
 const { TextArea } = Input;
 
 export default function PopupHelp({ setPopup }: Props) {
@@ -31,6 +32,11 @@ export default function PopupHelp({ setPopup }: Props) {
     },
   };
 
+  const handleSubmit= () => {
+    setPopup(false);
+    toast.success("Gửi thành công")
+  }
+
   return (
     <>
       <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -44,7 +50,7 @@ export default function PopupHelp({ setPopup }: Props) {
               onClick={() => setPopup(false)}
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3cdb4f738951056cd82ceb92f181ffc7a691831fe00aab54da939ee58d9d52?apiKey=f19a917c094b4f6fa8172f34eb76d09c&"
               alt="Account Selection Icon"
-              className="shrink-0 w-[25px]"
+              className="shrink-0 w-[25px] text-[#1D2D35]"
             />
           </header>
           <div className="flex flex-col gap-[26px]">
@@ -71,6 +77,10 @@ export default function PopupHelp({ setPopup }: Props) {
                 </Dragger>
               </div>
             </div>
+          </div>
+
+          <div className="w-full flex flex-row justify-end mt-[20px] hover:opacity-90">
+            <Button variant="submit" onClick={handleSubmit}>Gửi</Button>
           </div>
         </div>
       </section>
