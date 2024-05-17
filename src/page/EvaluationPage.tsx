@@ -1,7 +1,7 @@
 import { BarGraph } from "@/components/ui/barGraph";
 import { LineGraph } from "@/components/ui/lineGraph";
+import { Radio } from 'antd';
 import { useState } from "react";
-import {  Radio } from 'antd';
 
 type SizeType = {};
 export default function EvaluationPage() {
@@ -13,6 +13,9 @@ export default function EvaluationPage() {
     plugins: {
       legend: {
         position: "bottom" as const,
+        labels: {
+          boxWidth: 20,
+        }
       },
       title: {
         display: false,
@@ -31,7 +34,8 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#9E54C8',
+        backgroundColor: '#0BE02D',
+
       },
       {
         label: 'Thời gian thực tế',
@@ -63,7 +67,7 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labelsLine.map(() => getRandomNumber(20, 100)),
-        borderColor: '#9E54C8',
+        borderColor: '#0BE02D',
         backgroundColor: '#9E54C8',
       },
       {
@@ -90,7 +94,7 @@ export default function EvaluationPage() {
           Đánh giá
         </div>
       </div>
-      <div className="content w-full relative  flex flex-col gap-[15px] mt-[10px]  " style={{ top: '20px' }}>
+      <div className="content w-full relative  flex flex-col gap-[15px] mt-[10px] ">
         <div>
           
             <Radio.Group value={size} onChange={(e) => {setTimeDisplay(e.target.value), setSize(e.target.value)}}>

@@ -33,29 +33,27 @@ export default function TaskPage({ }: Props) {
     console.log("edit task", id);
     window.location.href = `/edit_task/${id}`;
   }
+
+  const handleReset = () => {
+    location.reload();
+  }
   
   return (
     <div className="flex flex-col gap-[60px]">
       <div className="flex flex-col gap-[40px] w-full">
-        <div className="flex flex-row justify-between h-full">
-          <div className="text-4xl font-semibold text-primary-600">
+        <div className="flex flex-row justify-start h-full">
+          <div className="text-4xl font-semibold text-primary-600 cursor-pointer" onClick={handleReset}>
             Nhiệm vụ
-          </div>
-          <div className="bg-green-500 w-[240px] rounded-[15px] h-[40px] flex">
-            <div className="bg-red-400 w-4/5 rounded-[15px] flex justify-center items-center">
-              <div className="text-white text-2xl font-bold px-[10px]">Tiến độ 35/50</div>
-            </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-[60px]">
-          <div className="flex flex-row h-[40px] items-center gap-[40px]">
+          <div className="flex flex-row h-[40px] items-center gap-[40px] justify-between">
             <div className="flex flex-row gap-[30px] items-center justify-center h-full">
               <Input placeholder="Lọc theo tên" className="w-[300px]" />
-              <FilterByTaskStatus defautValue="" value={valueStatus} onChange={onFilterStatus} />
-              {/* <FilterByTaskStatus value="" onChange={filterStatus} /> */}
+              <FilterByTaskStatus defautValue="" value={valueStatus} onChange={onFilterStatus}  />
             </div>
-            <Button variant="submit" size="sm" className="text-white text-lg font-normal">Tìm kiếm</Button>
+            <Button variant="submit" size="sm" className="text-white text-lg font-normal h-[40px] hover:opacity-90">Tìm kiếm</Button>
           </div>
 
           <div className="w-full gap-[45px] flex-wrap flex flex-row  justify-between">

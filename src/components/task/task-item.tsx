@@ -66,7 +66,7 @@ export default function TaskItem({
             {required && <FlagIcon width="16" height="16" />}
           </div>
           <img
-            src="image.png"
+            src="avt.png"
             alt="avt"
             className="w-[30px] h-[30px] rounded-full"
           />
