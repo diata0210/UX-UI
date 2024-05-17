@@ -18,9 +18,9 @@ export default function Sidebar({}: Props) {
   return (
     <div className="w-[300px] pb-[20px] h-full flex py-[4px] flex-col shadow border border-blue-500 rounded-2xl border-b-0 justify-between">
 
-      <div className=" flex flex-col">
+      <div className=" flex flex-col gap-[27px] mt-[32px]">
         <div className="w-full flex items-center justify-center">
-          <img src="/logo.png" alt="logo" className="object-contain"/>
+          <img src="/logo.png" alt="logo" className="object-contain w-[200px]"/>
         </div>
         <div className="flex flex-col 2xl:gap-[24px] gap-[16px]">
           {

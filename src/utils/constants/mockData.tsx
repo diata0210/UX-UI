@@ -1,32 +1,32 @@
 export const SIDEBAR = [
   {
     icon: 'HomeIcon',
-    name: 'Home',
+    name: 'Trang chủ',
     link: '/'
   },
   {
     icon: 'CalendarIcon',
-    name: 'Calendar',
+    name: 'Lịch',
     link: '/calendar'
   },
   {
     icon: 'TaskIcon',
-    name: 'Task',
+    name: 'Nhiệm vụ',
     link: '/task'
   },
   {
     icon: 'EvaluationIcon',
-    name: 'Evaluation',
+    name: 'Đánh giá',
     link: '/evaluation'
   },
   {
     icon: 'TreeIcon',
-    name: 'Tree',
+    name: 'Cây của tôi',
     link: '/tree'
   },
   {
     icon: 'SettingIcon',
-    name: 'Setting',
+    name: 'Cài đặt',
     link: '/setting'
   },
 ]

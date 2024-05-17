@@ -1,7 +1,7 @@
 import { BarGraph } from "@/components/ui/barGraph";
 import { LineGraph } from "@/components/ui/lineGraph";
+import { Radio } from 'antd';
 import { useState } from "react";
-import {  Radio } from 'antd';
 
 type SizeType = {};
 export default function EvaluationPage() {
@@ -13,6 +13,9 @@ export default function EvaluationPage() {
     plugins: {
       legend: {
         position: "bottom" as const,
+        labels: {
+          boxWidth: 20,
+        }
       },
       title: {
         display: false,
@@ -31,7 +34,8 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: '#9E54C8',
+        backgroundColor: '#0BE02D',
+
       },
       {
         label: 'Thời gian thực tế',
@@ -63,7 +67,7 @@ export default function EvaluationPage() {
       {
         label: 'Thời gian dự kiến',
         data: labelsLine.map(() => getRandomNumber(20, 100)),
-        borderColor: '#9E54C8',
+        borderColor: '#0BE02D',
         backgroundColor: '#9E54C8',
       },
       {
@@ -86,7 +90,7 @@ export default function EvaluationPage() {
       className="  setting-container flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] min-h-[80vh] w-full "
     >
       <div className='breadcrum relative'>
-        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-[#4677d4] '>
+        <div className='flex-grow-0 flex-shrink-0 text-[36px] font-semibold text-left text-blue-500 text-4xl font-inter '>
           Đánh giá
         </div>
       </div>
