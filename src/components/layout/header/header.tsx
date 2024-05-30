@@ -11,11 +11,10 @@ import PopupHelp from "./popup-help";
 type Props = {};
 
 export default function Header({}: Props) {
-
-  const [popupHelp, setPopupHelp] = useState(false)
+  const [popupHelp, setPopupHelp] = useState(false);
   const handlePopupHelp = () => {
-    setPopupHelp(true)
-  }
+    setPopupHelp(true);
+  };
 
   const items: MenuProps["items"] = [
     {
@@ -49,7 +48,7 @@ export default function Header({}: Props) {
     location.href = "/new_task";
   };
   return (
-    <div className="h-[100px] w-full  bg-white px-[38px] py-[19px] flex justify-between items-center shadow ">
+    <div className="h-[100px] w-full bg-white px-[38px] py-[19px] flex justify-between items-center">
       <div className="flex gap-[44px] items-center">
         <Button variant="submit" className="" onClick={handleAddTask}>
           Thêm nhiệm vụ
@@ -65,7 +64,7 @@ export default function Header({}: Props) {
           <div onClick={handlePopupHelp}>
             <ContactIcon height={40} width={40} />
           </div>
-          {popupHelp && <PopupHelp setPopup={setPopupHelp}  />}
+          {popupHelp && <PopupHelp setPopup={setPopupHelp} />}
         </div>
 
         <div className="">

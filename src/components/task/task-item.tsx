@@ -25,13 +25,13 @@ export default function TaskItem({
 }: Props) {
   return (
     <div
-      className={`px-[22px] pt-[13px] pb-[8px] rounded-[15px] w-[288px] h-[146px] ${
+      className={`px-[22px] pt-[10px] rounded-[15px] py-[8px] xl:w-[300px] w-[240px] 2xl:h-[146px] h-fit  ${
         status == "1" ? "bg-[#FCD1D3]" : "bg-[#9FD0FD]"
       }`}
     >
       <div className="flex flex-col gap-[10px]">
         <div className="flex flex-row justify-between items-center">
-          <span className="text-xl font-medium ">{name}</span>
+          <span className="2xl:text-xl font-medium xl:text-[18px]">{name}</span>
           <span className="text-base font-bold">{date}</span>
         </div>
         <div>
@@ -55,10 +55,12 @@ export default function TaskItem({
         </div>
 
         <div className="flex flex-row justify-between items-center ">
-          <div className="w-[45px] flex flex-row justify-around items-center rounded-sm shadow "
-            style={{ boxShadow: "0px 0.5069931149482727px 4px 0 rgba(0,0,0,0.15)" }}
+          <div
+            className="w-[45px] flex flex-row justify-around items-center rounded-sm shadow "
+            style={{
+              boxShadow: "0px 0.5069931149482727px 4px 0 rgba(0,0,0,0.15)",
+            }}
           >
-            
             <span className="text-base font-medium flex  row items-center ">
               <AttachIcon />
               {number_file}

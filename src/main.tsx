@@ -1,20 +1,16 @@
-import React from 'react'
-import "react-big-calendar/lib/css/react-big-calendar.css"
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App.tsx'
-import { UIProvider } from './contexts/ui.context.tsx'
-import './styles/global.css'
-import './styles/index.css'
-import "./styles/plugin.css"
+import React from "react";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.tsx";
+import "./styles/global.css";
+import "./styles/index.css";
+import "./styles/plugin.css";
 
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <UIProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </UIProvider>
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);

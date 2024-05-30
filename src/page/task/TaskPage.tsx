@@ -1,62 +1,82 @@
-import FilterByTaskStatus from "@/components/task/filter-task-by-status"
-import TaskItem from "@/components/task/task-item"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { TASKS } from "@/utils/constants/mockData"
-import { Pagination, PaginationProps } from "antd"
-import { useState } from "react"
+import FilterByTaskStatus from "@/components/task/filter-task-by-status";
+import TaskItem from "@/components/task/task-item";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { TASKS } from "@/utils/constants/mockData";
+import { Pagination, PaginationProps } from "antd";
+import { useState } from "react";
 
-type Props = {}
+type Props = {};
 const allTasks = Object.values(TASKS).flat();
 
-export default function TaskPage({ }: Props) {
-
+export default function TaskPage({}: Props) {
   const [pageTask, setPageTask] = useState(TASKS[1]);
   const [valueStatus, setValueStatus] = useState(null);
 
-  const onChange: PaginationProps['onChange'] = (pageNumber: number) => {
-    let tasks = TASKS[pageNumber];
+  const onChange: PaginationProps["onChange"] = (pageNumber: number) => {
+    let tasks = TASKS[pageNumber as keyof typeof TASKS];
     setPageTask(tasks);
     if (valueStatus) {
-      setPageTask(allTasks.filter((task: any) => task.status == valueStatus).slice(6 * (pageNumber - 1), 6 * pageNumber));
+      setPageTask(
+        allTasks
+          .filter((task: any) => task.status == valueStatus)
+          .slice(6 * (pageNumber - 1), 6 * pageNumber)
+      );
     }
   };
 
   const onFilterStatus = (value: any) => {
     setValueStatus(value);
-    setPageTask(allTasks.filter((task: any) => task.status == value).slice(0, 6));
-    console.log(pageTask)
-  }
+    setPageTask(
+      allTasks.filter((task: any) => task.status == value).slice(0, 6)
+    );
+    console.log(pageTask);
+  };
 
-
-  const handleEditTask = (id: string) => {
+  const handleEditTask = (id: any) => {
     console.log("edit task", id);
     window.location.href = `/edit_task/${id}`;
-  }
+  };
 
   const handleReset = () => {
     location.reload();
-  }
-  
+  };
+
   return (
-    <div className="flex flex-col gap-[60px]">
-      <div className="flex flex-col gap-[40px] w-full">
+    <div className="flex flex-col 2xl:gap-[60px] xl:gap-[40px] gap-[30px]">
+      <div className="flex flex-col gap-[20px] w-full">
         <div className="flex flex-row justify-start h-full">
-          <div className="text-4xl font-semibold text-primary-600 cursor-pointer" onClick={handleReset}>
+          <div
+            className="text-4xl font-semibold text-primary-600 cursor-pointer"
+            onClick={handleReset}
+          >
             Nhiệm vụ
           </div>
         </div>
 
-        <div className="flex flex-col gap-[60px]">
+        <div className="flex flex-col xl:gap-[50px] gap-[30px]">
           <div className="flex flex-row h-[40px] items-center gap-[40px] justify-between">
             <div className="flex flex-row gap-[30px] items-center justify-center h-full">
-              <Input placeholder="Lọc theo tên" className="w-[300px]" />
-              <FilterByTaskStatus defautValue="" value={valueStatus} onChange={onFilterStatus}  />
+              <Input
+                placeholder="Lọc theo tên"
+                className="w-[300px] h-[32px]"
+              />
+              <FilterByTaskStatus
+                defautValue=""
+                value={valueStatus}
+                onChange={onFilterStatus}
+              />
             </div>
-            <Button variant="submit" size="sm" className="text-white text-lg font-normal h-[40px] hover:opacity-90">Tìm kiếm</Button>
+            <Button
+              variant="submit"
+              size="sm"
+              className="text-white text-lg font-normal h-[32px] hover:opacity-90"
+            >
+              Tìm kiếm
+            </Button>
           </div>
 
-          <div className="w-full gap-[45px] flex-wrap flex flex-row  justify-between">
+          <div className="w-full xl:gap-[45px] gap-[20px] flex-wrap flex flex-row justify-between">
             {pageTask.map((task) => (
               <div key={task.id} onClick={() => handleEditTask(task.id)}>
                 <TaskItem
@@ -69,12 +89,12 @@ export default function TaskPage({ }: Props) {
                 />
               </div>
             ))}
-
           </div>
 
           <></>
         </div>
       </div>
+
       <div className="flex justify-center">
         <Pagination
           total={85}
@@ -82,9 +102,8 @@ export default function TaskPage({ }: Props) {
           showQuickJumper
           showTotal={(total) => `Total ${total} items`}
           onChange={onChange}
-
         />
       </div>
     </div>
-  )
+  );
 }

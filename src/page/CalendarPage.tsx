@@ -7,42 +7,57 @@ import "dayjs/locale/es";
 import React from "react";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import "./App.css";
-type Props = {}
+type Props = {};
 
 dayjs.locale("vi");
 const today = dayjs();
 
-export default function CalendarPage({ }: Props) {
-
+export default function CalendarPage({}: Props) {
   const localizer = dayjsLocalizer(dayjs);
   const [view, setView] = React.useState("month");
 
   const components = {
-    event: (props) => {
-
+    event: (props: any) => {
       if (view === "week") {
         return (
-          <div className={`${props.event.status === 2 ?  "bg-[#9FD0FD]" : "bg-[#FCD1D3]" } h-full py-[6px] rounded-[8px]`}>
+          <div
+            className={`${
+              props.event.status === 2 ? "bg-[#9FD0FD]" : "bg-[#FCD1D3]"
+            } h-full py-[6px] rounded-[8px]`}
+          >
             <div className="flex flex-col gap-[10px]">
               <div className="border-b-[1px] border-[#E6ECF0] flex flex-col pl-[6px] pr-[17px] gap-[6px]">
-                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">{props.event.title}</div>
-                <Badge variant={props.event.status == "2" ? "completed" : "progressing"} className="w-fit">
-                  {props.event.status == "2" ? "Đã hoàn thành" : "Chưa hoàn thành"}
-                </Badge>              
+                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">
+                  {props.event.title}
                 </div>
+                <Badge
+                  variant={
+                    props.event.status == "2" ? "completed" : "progressing"
+                  }
+                  className="w-fit"
+                >
+                  {props.event.status == "2"
+                    ? "Đã hoàn thành"
+                    : "Chưa hoàn thành"}
+                </Badge>
+              </div>
 
               <div className="flex flex-row px-[6px] items-center justify-between">
                 <div className="flex items-center gap-[4px]">
                   <div className="flex flex-row gap-[2px] items-center">
                     <AttachIcon />
-                    <div className="text-gray-800 text-sm font-medium">{props.event.data.x}</div>
+                    <div className="text-gray-800 text-sm font-medium">
+                      {props.event.data.x}
+                    </div>
                   </div>
 
                   <FlagIcon />
 
                   <div className="flex flex-row items-center gap-[2px]">
                     <ClockIcon />
-                    <div className="text-center text-gray-800 text-xs font-bold">May 16</div>
+                    <div className="text-center text-gray-800 text-xs font-bold">
+                      May 16
+                    </div>
                   </div>
                 </div>
 
@@ -50,30 +65,45 @@ export default function CalendarPage({ }: Props) {
               </div>
             </div>
           </div>
-        )
-      }
-
-      else if (view === "day") {
+        );
+      } else if (view === "day") {
         return (
-          <div className={`${props.event.status === 2 ? "bg-[#9FD0FD]": "bg-[#FCD1D3]" } h-full py-[6px] rounded-[8px] w-full`}>
+          <div
+            className={`${
+              props.event.status === 2 ? "bg-[#9FD0FD]" : "bg-[#FCD1D3]"
+            } h-full py-[6px] rounded-[8px] w-full`}
+          >
             <div className="flex flex-col gap-[10px] w-full">
               <div className="border-b-[1px] border-[#E6ECF0] flex flex-col pl-[6px] pr-[17px] gap-[6px]">
-                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">{props.event.title}</div>
-                <Badge variant={props.event.status == "2" ? "completed" : "progressing"} className="w-fit">
-                  {props.event.status == "2" ? "Đã hoàn thành" : "Chưa hoàn thành"}
-                </Badge>  
+                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">
+                  {props.event.title}
+                </div>
+                <Badge
+                  variant={
+                    props.event.status == "2" ? "completed" : "progressing"
+                  }
+                  className="w-fit"
+                >
+                  {props.event.status == "2"
+                    ? "Đã hoàn thành"
+                    : "Chưa hoàn thành"}
+                </Badge>
               </div>
 
               <div className="flex flex-row px-[6px] items-center justify-between w-full">
                 <div className="flex items-center gap-[6px] flex-row">
                   <div className="flex flex-row gap-[6px] items-center">
                     <AttachIcon />
-                    <div className="text-gray-800 text-sm font-medium">{props.event.data.x}</div>
+                    <div className="text-gray-800 text-sm font-medium">
+                      {props.event.data.x}
+                    </div>
                   </div>
                   <FlagIcon />
                   <div className="flex flex-row items-center gap-[4px]">
                     <ClockIcon />
-                    <div className="text-center text-gray-800 text-xs font-bold">May 16</div>
+                    <div className="text-center text-gray-800 text-xs font-bold">
+                      May 16
+                    </div>
                   </div>
                 </div>
 
@@ -81,19 +111,21 @@ export default function CalendarPage({ }: Props) {
               </div>
             </div>
           </div>
-        )
-      }
-
-      else {
+        );
+      } else {
         return (
-          <div className={`${props.event.status === 2 ?  "text-[#0013FE]" : "text-[#FE2E00]"} px-[20px] text-[14px] relative`}>
+          <div
+            className={`${
+              props.event.status === 2 ? "text-[#0013FE]" : "text-[#FE2E00]"
+            } px-[20px] text-[14px] relative`}
+          >
             <span className="position top-2 mr-[4px]">.</span>
             {props.event.title}
           </div>
-        )
+        );
       }
-    }
-  }
+    },
+  };
 
   const events = [
     {
@@ -103,7 +135,7 @@ export default function CalendarPage({ }: Props) {
       data: {
         x: 10,
       },
-      status: 2
+      status: 2,
     },
     {
       start: dayjs("2024-05-17T12:00:00").toDate(),
@@ -112,7 +144,7 @@ export default function CalendarPage({ }: Props) {
       data: {
         x: 20,
       },
-      status: 1
+      status: 1,
     },
     {
       start: dayjs("2024-05-17T14:00:00").toDate(),
@@ -121,16 +153,15 @@ export default function CalendarPage({ }: Props) {
       data: {
         x: 20,
       },
-      status: 1
+      status: 1,
     },
   ];
-
 
   return (
     <div
       style={{
         height: "100%",
-        paddingBottom: "20px"
+        paddingBottom: "20px",
       }}
     >
       <Calendar
@@ -139,12 +170,12 @@ export default function CalendarPage({ }: Props) {
         startAccessor={"start"}
         endAccessor={"end"}
         views={["month", "week", "day"]}
-        date={dayjs(today.format('YYYY-MM-DD') + "T8:00:00").toDate()}
+        date={dayjs(today.format("YYYY-MM-DD") + "T8:00:00").toDate()}
         onView={(view) => setView(view)}
         toolbar={true}
         defaultView="month"
-        min={dayjs(today.format('YYYY-MM-DD') + "T7:00:00").toDate()}
-        max={dayjs(today.format('YYYY-MM-DD') + "T17:00:00").toDate()}
+        min={dayjs(today.format("YYYY-MM-DD") + "T7:00:00").toDate()}
+        max={dayjs(today.format("YYYY-MM-DD") + "T17:00:00").toDate()}
         formats={{
           dayHeaderFormat: (date) => {
             console.log(date);
@@ -152,13 +183,13 @@ export default function CalendarPage({ }: Props) {
           },
         }}
         components={components}
-      // eventPropGetter={event => {
-      //   return {
-      //     style: {
-      //       backgroundColor: event.color
-      //     }
-      //   }
-      // }}
+        // eventPropGetter={event => {
+        //   return {
+        //     style: {
+        //       backgroundColor: event.color
+        //     }
+        //   }
+        // }}
       />
     </div>
   );

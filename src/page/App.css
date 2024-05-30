@@ -4,29 +4,33 @@
   border: none !important;
 }
 
-.rbc-event.rbc-selected{
+.rbc-event.rbc-selected {
   background-color: transparent;
   border: none;
-
 }
-.rbc-row-content{
+.rbc-row-content {
   height: 100%;
   border: none;
 }
 
-.rbc-event-label{
-  color: #1D2D35;
+.rbc-event-label {
+  color: #1d2d35;
   padding-right: 2px;
   padding-left: 2px;
   display: none;
 }
 
 .rbc-active {
-  background: #2A3AFC !important;
+  background: #2a3afc !important;
   color: #ffffff !important;
 }
 
-.rbc-allday-cell{
+.rbc-allday-cell {
   background: #ffffff;
 }
 
+@media screen and (min-width: 1400px) {
+  .img-kpi {
+    width: 200px;
+  }
+}
