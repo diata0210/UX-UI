@@ -120,11 +120,11 @@ export default function SettingPage({ }: Props) {
         </div>
       </div>
       <div className=" w-full relative  flex flex-col gap-[55px] ">
-        <div className=' flex flex-row '>
-          <div className=' w-1/2 md:mt-[28px] mt-[20px] flex flex-col gap-[10px]'>
+        <div className=' flex flex-row gap-20'>
+          <div className=' w-1/2 mt-[25px] flex flex-col gap-[10px]'>
 
             <CascaderInput label='Ngôn ngữ' options={language} defaultvalue='vietnam' />
-            <div className='format flex flex-row gap-[14px] w-full justify-between w-[200px]' >
+            <div className='format flex flex-row gap-[14px] w-full justify-between ' >
               <div className="w-1/2">
                 <CascaderInput label='Định dạng' options={fomartDate} defaultvalue='MM/DD/YYYY' />
               </div>
@@ -139,7 +139,7 @@ export default function SettingPage({ }: Props) {
             </div>
           </div>
 
-          <div className='cotent-right  w-1/2 pl-[58px] mt-[25px] flex flex-col gap-[10px]'>
+          <div className='cotent-right  w-1/2 mt-[25px] flex flex-col gap-[10px]'>
             <CascaderInput label='Cài đặt thông báo' options={notify} defaultvalue='screen' />
             <CascaderInput label='Thông báo trước sự kiện' options={notifyBefore} defaultvalue='30' />
             <CascaderInput label='Bắt đầu tuần vào' options={weekStart} defaultvalue='monday' />
@@ -147,7 +147,7 @@ export default function SettingPage({ }: Props) {
           </div>
         </div>
         <div className="submmit-button flex align-center justify-around mb-[30px]">
-          <Button variant="destructive" onClick={handleReset} className="text-white ">Đặt lại mặc định</Button>
+          <Button variant="destructive" onClick={handleReset} className="text-white text-center ">Đặt lại mặc định</Button>
           <Button variant="submit" onClick={handleSubmit} className="text-white " >Lưu thay đổi</Button>
         </div>
 

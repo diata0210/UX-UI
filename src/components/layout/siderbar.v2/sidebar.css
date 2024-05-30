@@ -1,0 +1,25 @@
+.collapsed-menu .menu-icon {
+  font-size: 24px; /* Increase the size when collapsed */
+  text-align: center; /* Ensure the icon is centered */
+}
+
+/* Centering and spacing adjustments */
+.ant-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items when collapsed */
+}
+
+.ant-menu-item:not(.ant-menu-item-selected) .anticon {
+  margin-right: 0; /* Remove right margin when collapsed */
+  padding-inline: none;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item  {
+  font-size: 24px; /* Adjust icon size for collapsed state */
+  padding-inline: calc(50% - 8px - 8px);
+  margin-right: 0; /* Remove right margin */
+}
+.ant-layout-sider-trigger {
+  font-weight: 800;
+}

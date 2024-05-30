@@ -5,6 +5,7 @@ import ClockIcon from "@/assets/icons/time";
 import { Badge } from "../ui/badge";
 
 type Props = {
+  id: string;
   name: string;
   status: string;
   date: string;
@@ -15,6 +16,7 @@ type Props = {
 };
 
 export default function TaskItem({
+  id,
   name,
   status,
   date,
@@ -31,8 +33,8 @@ export default function TaskItem({
     >
       <div className="flex flex-col gap-[10px]">
         <div className="flex flex-row justify-between items-center">
-          <span className="text-xl font-medium ">{name}</span>
-          <span className="text-base font-bold">{date}</span>
+          <span className="text-xl font-medium overflow-hidden">{name}</span>
+          <span className="text-base font-bold overflow-hidden">{date}</span>
         </div>
         <div>
           <Badge variant={status == "1" ? "progressing" : "completed"}>

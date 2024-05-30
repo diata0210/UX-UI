@@ -13,7 +13,7 @@ import Login from "../components/auth/login"
 import MainLayout from "../components/layout/main-layout"
 import HomePage from "../page/HomePage"
 import Profile from '@/page/Profile'
-
+import MainLayout2  from '@/components/layout/main-layout/main-layout'
 function AllRoutes() {
 
   const location = useLocation();
@@ -29,15 +29,15 @@ function AllRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register/>} />
       <Route path="/change-password" element={<ChangePassWord/>} />
-      <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
-      <Route path="/calendar" element={<MainLayout><CalendarPage /></MainLayout>}/>
-      <Route path="/task" element={<MainLayout><TaskPage /></MainLayout>}/>
-      <Route path="/tree" element={<MainLayout><TreePage /></MainLayout>}/>
-      <Route path="/evaluation" element={<MainLayout><EvaluationPage /></MainLayout>}/>
-      <Route path="/setting" element={<MainLayout><SettingPage /></MainLayout>}/>
-      <Route path={`edit_task/${id}`} element={<MainLayout><EditTaskPage id={id} /></MainLayout>} />
-      <Route path="/new_task" element={<MainLayout><AddTaskPage /></MainLayout>} />
-      <Route path="/profile" element={<MainLayout><Profile /></MainLayout>} />
+      <Route path="/" element={<MainLayout2><HomePage /></MainLayout2>} />
+      <Route path="/calendar" element={<MainLayout2><CalendarPage /></MainLayout2>}/>
+      <Route path="/task" element={<MainLayout2><TaskPage /></MainLayout2>}/>
+      <Route path="/tree" element={<MainLayout2><TreePage /></MainLayout2>}/>
+      <Route path="/report" element={<MainLayout2><EvaluationPage /></MainLayout2>}/>
+      <Route path="/setting" element={<MainLayout2><SettingPage /></MainLayout2>}/>
+      <Route path={`edit_task/${id}`} element={<MainLayout2><EditTaskPage id={id} /></MainLayout2>} />
+      <Route path="/new_task" element={<MainLayout2><AddTaskPage /></MainLayout2>} />
+      <Route path="/profile" element={<MainLayout2><Profile /></MainLayout2>} />
     </Routes>
   )
 }

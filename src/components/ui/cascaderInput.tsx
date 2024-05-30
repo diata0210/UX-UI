@@ -25,7 +25,7 @@ const filter = (inputValue: string, path: DefaultOptionType[]) =>
 const CascaderInput: React.FC<CascaderInputProps> = ({ label, options, defaultvalue, width }) => {
   return (
     <div className='flex flex-col gap-[5px]'>
-      <div className=''>{label}</div>
+      <div className='font-medium'>{label}</div>
       <Cascader
         className='w-full'
         size='large'

@@ -86,7 +86,7 @@ export default function EvaluationPage() {
       </div>
       <div className="w-full flex flex-row items-center justify-between gap-[28px]">
         <div className="w-full flex flex-col gap-[15px] mt-[10px] ">
-          <div className="w-full flex flex-row items-center justify-between">
+          <div className="w-full flex flex-row items-center justify-around">
             <Select className="w-[200px] " defaultValue="Tiếng Nhật">
               <Select.Option value="Tiếng Nhật">Tiếng Nhật</Select.Option>
               <Select.Option value="IT">IT</Select.Option>
@@ -103,27 +103,34 @@ export default function EvaluationPage() {
               <Radio.Button value="month">Tháng</Radio.Button>
             </Radio.Group>
           </div>
-          <div className="w-full mx-auto flex flex-row items-center justify-between">
+          <div className="w-full mx-auto flex flex-row items-center justify-around">
             {timeDisplay === "week" ? (
-              <div className="flex items-center justify-between gap-[30px]">
+              <div className="flex items-center justify-around gap-[30px]">
                 <img src="/KPI.png" className="w-[250px]" />
-                <div className="flex flex-row md:flex-col gap-[60px] items-center">
-                  <div className="max-w-[500px] h-[312px]">
-                    <div className="flex w-full justify-center font-medium text-[20px] text-[#3A99F1] mb-[20px]">
+                <div className="flex flex-row">
+                  <div className="bg-white p-5 rounded-xl shadow-xl">
+                    <div className="flex w-full justify-center font-semibold text-[20px] text-[#3A99F1] mb-[20px]">
                       Hiệu suất làm việc
                     </div>
-                    <BarGraph options={options} data={data} />
+                    <div className="m-h-[400px] w-[600px]">
+                      <BarGraph options={options} data={data} />
+                    </div>
+
                   </div>
                 </div>
               </div>
             ) : (
               <>
                 <div className="flex flex-row gap-[60px] items-center">
+                <img src="/KPI.png" className="w-[250px]" />
+
                   <div className="max-w-[850px]">
-                    <div className="mx-auto font-medium text-[20px] w-full mb-[20px]">
+                    <div className="mx-auto flex w-full justify-center font-semibold text-[20px] text-[#3A99F1] mb-[20px]">
                       Hiệu suất làm việc
                     </div>
-                    <LineGraph options={optionsLine} data={dataLine} />
+                    <div className="m-h-[400px] w-[600px]">
+                      <LineGraph options={optionsLine} data={dataLine} />
+                    </div>
                   </div>
                 </div>
               </>
