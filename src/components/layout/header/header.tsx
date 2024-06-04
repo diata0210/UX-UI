@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../ui/button";
 import PopupHelp from "./popup-help";
+import WarningIcon from "@/assets/icons/bell";
 
 type Props = {};
 
@@ -35,7 +36,7 @@ export default function Header({}: Props) {
     },
     {
       label: (
-        <Link to={"/login"}>
+        <Link to={"/landing-page"}>
           <div style={{ color: "red" }} rel="noopener noreferrer">
             <LogoutOutlined /> Đăng xuất
           </div>
@@ -57,14 +58,15 @@ export default function Header({}: Props) {
 
       <div className="flex height-[37px] gap-[20px] items-center">
         <div className="2xl:text-[40px] xl:text-[34px] text-[30px] text-[#707293]">
-          Tháng 5 - 2024
+          Tháng 6 - 2024
         </div>
-        <div className="flex gap-[15px] justify-center">
+        <div className="flex gap-[15px] justify-center items-center">
           <SearchIcon />
           <div onClick={handlePopupHelp}>
             <ContactIcon height={40} width={40} />
           </div>
-          {popupHelp && <PopupHelp setPopup={setPopupHelp} />}
+          <WarningIcon />
+          {popupHelp && <div className="x-[1000]"><PopupHelp setPopup={setPopupHelp} /></div>}
         </div>
 
         <div className="">

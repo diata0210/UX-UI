@@ -9,6 +9,7 @@ export default function EvaluationPage() {
   const [size, setSize] = useState<SizeType>("week"); // default is 'middle'
   const [isModal, setIsModal] = useState<Boolean>(false);
   const [isModalDetail, setIsModalDetail] = useState<Boolean>(false);
+  const [KPI, setKPI] = useState("Tiếng Nhật");
 
   const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -96,6 +97,10 @@ export default function EvaluationPage() {
 
   const [timeDisplay, setTimeDisplay] = useState("week");
 
+  const handleChangeKPI = (value: any) => {
+    setKPI(value);
+  }
+
   return (
     <div className="setting-container flex-col gap-[20px] flex rounded-[10px] border-2 border-[#d9d9d9] w-full ">
       <div className="flex-grow-0 flex-shrink-0 text-left text-4xl font-semibold text-primary-600 ">
@@ -104,7 +109,7 @@ export default function EvaluationPage() {
       <div className="flex flex-row items-start justify-between pt-0 mt-0 w-full">
         <div className="w-2/3 xl:w-3/4 flex flex-col xl:pr-0 2xl:gap-[60px] xl:gap-[40px] gap-[20px]">
           <div className="w-full flex flex-row items-center justify-between">
-            <Select className="w-[200px] " defaultValue="Tiếng Nhật">
+            <Select className="w-[200px] " defaultValue={KPI} onChange={handleChangeKPI}>
               <Select.Option value="Tiếng Nhật">Tiếng Nhật</Select.Option>
               <Select.Option value="IT">IT</Select.Option>
               <Select.Option value="UX-UI">UX-UI</Select.Option>

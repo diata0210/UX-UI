@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import CascaderInput from "@/components/ui/cascaderInput";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import SettingFilter from "@/components/ui/cascaderInput";
 const language = [
   {
     value: "vietnam",
@@ -110,75 +110,66 @@ export default function SettingPage({}: Props) {
     toast.success("Đã thiết lập lại cài đặt");
   };
   return (
-    <div className="flex-col flex rounded-[10px] border-2 border-[#d9d9d9] mt-[10px] w-full overscroll-y">
-      <div className="relative">
+    <div className="flex-col flex rounded-[10px] border-2 border-[#d9d9d9] w-full overscroll-y">
+      <div className="relative mb-[20px]">
         <div className="flex-grow-0 flex-shrink-0 text-4xl font-semibold text-blue-500">
           Cài đặt
         </div>
       </div>
-      <div className="w-full relative  flex flex-col gap-[55px] ">
-        <div className=" flex flex-row ">
-          <div className=" w-1/2 md:mt-[28px] flex flex-col gap-[10px]">
-            <CascaderInput
+      <div className="w-full relative flex flex-col 2xl:gap-[80px] gap-[50px]">
+        <div className=" flex flex-row gap-[40px]">
+          <div className="w-1/2 flex flex-col xl:gap-[20px] gap-[10px]">
+            <SettingFilter
               label="Ngôn ngữ"
               options={language}
-              defaultvalue="vietnam"
             />
             <div className="format flex flex-row gap-[14px] w-full justify-between">
               <div className="w-1/2">
-                <CascaderInput
+                <SettingFilter
                   label="Định dạng"
                   options={fomartDate}
-                  defaultvalue="MM/DD/YYYY"
                 />
               </div>
               <div className="w-1/2">
-                <CascaderInput
+                <SettingFilter
                   label="Định dạng giờ"
                   options={fomartTime}
-                  defaultvalue="12"
                 />
               </div>
             </div>
-            <CascaderInput
+            <SettingFilter
               label="Quốc gia"
               options={country}
-              defaultvalue="vietnam"
             />
-            <CascaderInput
+            <SettingFilter
               label="Múi giờ"
               options={timezone}
-              defaultvalue="+7"
             />
             <div className=" ml-[35px] mt-[16px] flex justify-center items-center h-[44px] w-1/2 border-2 border-solid rounded-[10px] bg-white border-[#0069ff] text-[14px] font-medium text-[#0069ff]">
               Thêm lịch
             </div>
           </div>
 
-          <div className="cotent-right  w-1/2 pl-[58px] mt-[25px] flex flex-col gap-[10px]">
-            <CascaderInput
+          <div className="w-1/2 flex flex-col xl:gap-[20px] gap-[10px]">
+            <SettingFilter
               label="Cài đặt thông báo"
               options={notify}
-              defaultvalue="screen"
             />
-            <CascaderInput
+            <SettingFilter
               label="Thông báo trước sự kiện"
               options={notifyBefore}
-              defaultvalue="30"
             />
-            <CascaderInput
+            <SettingFilter
               label="Bắt đầu tuần vào"
               options={weekStart}
-              defaultvalue="monday"
             />
-            <CascaderInput
+            <SettingFilter
               label="Hiển thị lịch các ngày lễ"
               options={holidayDisplay}
-              defaultvalue="no"
             />
           </div>
         </div>
-        <div className="submmit-button flex align-center justify-around mb-[30px]">
+        <div className="flex align-center justify-around ">
           <Button
             variant="destructive"
             onClick={handleReset}

@@ -8,11 +8,12 @@ import EditTaskPage from '@/page/task/EditTaskPage'
 import TaskPage from '@/page/task/TaskPage'
 import TreePage from '@/page/TreePage'
 import { useEffect, useState } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Login from "../components/auth/login"
 import MainLayout from "../components/layout/main-layout"
 import HomePage from "../page/HomePage"
 import Profile from '@/page/Profile'
+import LandingPage from '@/page/LandingPage'
 
 function AllRoutes() {
 
@@ -38,6 +39,8 @@ function AllRoutes() {
       <Route path={`edit_task/${id}`} element={<MainLayout><EditTaskPage id={id} /></MainLayout>} />
       <Route path="/new_task" element={<MainLayout><AddTaskPage /></MainLayout>} />
       <Route path="/profile" element={<MainLayout><Profile /></MainLayout>} />
+      <Route path="/landing-page" element={<LandingPage />} />
+      <Route path="*" element={<Navigate to="landing-page" replace />} />
     </Routes>
   )
 }

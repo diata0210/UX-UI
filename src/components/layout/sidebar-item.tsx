@@ -25,7 +25,6 @@ const renderIcon = (iconName: string) => {
   }
 };
 
-
 type Props = {
   icon: string;
   name: string;
@@ -45,11 +44,12 @@ export default function SidebarItem({
         className='mx-[10px] rounded-[15px]'
         initial={isActive === true ? { backgroundColor: '#B4E6FF' } : { backgroundColor: '#FFF' }}
         whileHover={{
-          backgroundColor: '#B4E6FF',
-          color: '#FFF'
+          color: '#FFF',
+          backgroundColor: '#E8F7FF',
         }}
         whileTap={{
-          backgroundColor: '#B4E6FF'
+          backgroundColor: '#B4E6FF',
+          opacity: 0.5
         }}
         animate={isActive === true ?
           {
@@ -64,7 +64,9 @@ export default function SidebarItem({
       >
 
         <div className="flex items-center gap-[20px] px-[30px] py-[6px]">
-          {renderIcon(icon)}
+          <div>
+            {renderIcon(icon)}
+          </div>
           <div className="2xl:text-[28px] text-[24px] text-text-default font-medium h-full">
             {name}
           </div>

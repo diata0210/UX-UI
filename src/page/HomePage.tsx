@@ -3,6 +3,7 @@ import { BarGraph } from "@/components/ui/barGraph";
 
 import { Tooltip } from "antd";
 export default function HomePage() {
+
   const navigateToTask = () => {
     location.href = "/task";
   };
@@ -50,7 +51,7 @@ export default function HomePage() {
     location.href = "/tree";
   };
   return (
-    <div className="flex flex-row gap-[54px] mt-[16px] w-full">
+    <div className="flex flex-row gap-[54px]  w-full">
       <div className="flex flex-col gap-[20px] max-w-[697px]">
         <div className="flex flex-col gap-[10px] w-full ">
           <div className="flex flex-row gap-[8px] items-center">

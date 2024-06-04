@@ -21,6 +21,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           </div>
         </div>
       </div>
+      <div>
+        
+      </div>
     </div>
   );
 };

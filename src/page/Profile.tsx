@@ -2,6 +2,7 @@ import BackIcon from "@/assets/icons/back";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {CloseCircleOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -15,7 +16,7 @@ const InputProfile = ({ label, defaultValue }: InputProps) => {
   return (
     <div className="flex flex-col gap-[10px]">
       <Label className="text-gray-800 text-[20px] font-normal">{label}</Label>
-      <Input defaultValue={defaultValue} className="w-[367px]" />
+      <Input defaultValue={defaultValue} className="w-[280px] xl:w-[360px]" />
     </div>
   );
 };
@@ -27,7 +28,7 @@ type AccountOptionProps = {
 };
 
 const AccountOption: React.FC<AccountOptionProps> = ({ src, alt, text }) => (
-  <div className="flex gap-5 py-4 pr-52 pl-6 mt-8 text-center whitespace-nowrap bg-white border border-solid shadow-sm border-zinc-300 w-[300px]  rounded-lg">
+  <div className="cursor-pointer flex items-center gap-3 py-[10px] px-[20px] text-center whitespace-nowrap bg-white border border-solid shadow-sm border-zinc-300 w-[300px] rounded-lg">
     <img loading="lazy" src={src} alt={alt} className=" w-[26px]" />
     <div className="">{text}</div>
   </div>
@@ -80,10 +81,28 @@ export default function Profile({}: Props) {
     setSelected("op2");
   };
   const handleCancel = () => {
-    toast.error("Đã hủy bỏ thay đổi");
+    toast.error("Đã hủy bỏ thay đổi", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
   const handleSubmit = () => {
-    toast.success("Đã lưu thay đổi");
+    toast.success("Đã lưu thay đổi",{
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
   const handleLink = () => {
     setPopup(true);
@@ -95,17 +114,17 @@ export default function Profile({}: Props) {
   return (
     <>
       <div className="flex flex-col">
-        <div className="flex flex-col gap-[39px]">
-          <div className="flex flex-row gap-[27px] mt-[20px]">
-            <div onClick={handleBack}>
-              <BackIcon />
+        <div className="flex flex-col gap-[20px]">
+          <div className="flex flex-row gap-[10px] items-center">
+            <div onClick={handleBack} >
+              <BackIcon width="26" height="26"/>
             </div>
             <p className="text-blue-500 text-4xl font-semibold">
               Thiết lập tài khoản
             </p>
-          </div>
-          <div className="content">
-            <div className="header flex flex-row border-b-2 border-solid border-[#82ccf1]">
+          </div> 
+          <div className="flex flex-col w-full 2xl:gap-[50px] gap-[30px]">
+            <div className="w-full flex flex-row border-b-2 border-solid border-[#82ccf1]">
               <div
                 onClick={handleOp1}
                 className={`text-[20px] flex justify-center w-[200px] ${
@@ -127,24 +146,22 @@ export default function Profile({}: Props) {
                 Những tài khoản đã liên kết
               </div>
             </div>
-            <div>
               {selected === "op1" ? (
-                <div className="flex flex-row gap-[30px] items-start">
-                  <div className="avatar ml-[55px] flex flex-col w-[200px] justify-center items-center">
+                <div className="flex w-full flex-row gap-[30px] xl:gap-[50px] items-start justify-between">
+                  <div className="w-1/5 xl:x-1/4 flex flex-col justify-center items-center">
                     <div className="mt-[62px]">
                       <img src="/avt.png" alt="avatar nè" />
                     </div>
-                    <div>
-                      <div
-                        className="w-[100px] h-[22px] rounded-[15px] bg-white/40 flex justify-center"
-                        style={{ boxShadow: "0px 4px 4px 0 rgba(0,0,0,0.25)" }}
-                      >
-                        Tải ảnh lên
-                      </div>
+                    <div
+                      className="w-[100px] h-[22px] rounded-[15px] bg-white/40 flex justify-center"
+                      style={{ boxShadow: "0px 4px 4px 0 rgba(0,0,0,0.25)" }}
+                    >
+                      Tải ảnh lên
                     </div>
                   </div>
-                  <div className="info flex flex-col gap-[31px]">
-                    <div className="flex flex-row gap-[70px] mt-[50px]">
+
+                  <div className="flex flex-col gap-[31px] w-3/4 xl:x-2/3">
+                    <div className="flex flex-row w-full gap-[70px]  justify-between">
                       <InputProfile
                         label="Email"
                         defaultValue="test@gmail.com"
@@ -154,17 +171,21 @@ export default function Profile({}: Props) {
                         defaultValue="windbeandz"
                       />
                     </div>
-                    <div>
+                    <div className="flex flex-row w-full gap-[70px] justify-between">
                       <InputProfile
-                        label="Số giờ dự kiến làm việc trong tháng (hh)"
+                        label="Mục tiêu làm việc"
                         defaultValue="60"
                       />
+                      <InputProfile
+                        label="Nghề nghiệp"
+                        defaultValue="Giáo viên"
+                      />
                     </div>
-                    <div className="flex flex-row gap-[70px]">
+                    <div className="flex flex-row gap-[70px] justify-between">
                       <InputProfile label="Quốc gia" defaultValue="Việt Nam" />
                       <InputProfile label="Thành phố" defaultValue="Hà Nội" />
                     </div>
-                    <div className="flex align-center justify-around">
+                    <div className="flex xl:mt-[30px] align-center justify-around">
                       <Button
                         onClick={handleCancel}
                         variant="destructive"
@@ -183,12 +204,12 @@ export default function Profile({}: Props) {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col justify-between h-[55vh] mt-[47px]">
-                  <div className="flex flex-col w-[1049px] h-[190px] rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[18px]">
-                    <div className="ml-[30px] mt-[18px] text-3xl text-left text-[#1d2d35]">
+                <div className="justify-between flex flex-col gap-[30px] xl:gap-[0px] w-full">
+                  <div className="flex px-[20px] py-[20px] flex-col rounded-[20px] bg-white border-solid border-2 border-[#ccc] gap-[10px]">
+                    <div className="text-3xl text-left text-[#1d2d35]">
                       Google
                     </div>
-                    <div className="ml-[30px] text-[24px]">
+                    <div className="text-[22px]">
                       Tài khoản của bạn{" "}
                       <p className="inline text-[#fb4949]">
                         nguyenvana@gmail.com
@@ -196,7 +217,7 @@ export default function Profile({}: Props) {
                       đã được liên kết với Tracking KPI
                     </div>
                     <div
-                      className="ml-[30px] mt-[8px] w-[339px] bg-[#ff4d4f] rounded-[10px] h-10 text-2xl text-center text-white flex items-center justify-center"
+                      className="w-fit px-[10px] bg-[#fb6668] rounded-[10px] h-10 text-2xl text-center text-white flex items-center justify-center"
                       style={{ boxShadow: "0px 4px 4px 0 rgba(0,0,0,0.25)" }}
                     >
                       Hủy liên kết tài khoản này
@@ -205,35 +226,34 @@ export default function Profile({}: Props) {
                   <Button
                     onClick={handleLink}
                     variant="submit"
-                    className="text-white self-end text-[28px] h-[54px] font-medium gap-2.5 p-2.5 w-[414px]"
+                    className="text-white self-end fixed bottom-[20px] text-[24px] h-[40px] font-medium gap-2.5 p-2.5 w-fit px-[20px]"
                   >
                     Liên kết các tài khoản khác
                   </Button>
                   {popup && (
                     <>
                       <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                        <div className="flex flex-col items-end px-11 pt-9 pb-20 text-lg font-medium #1D2D35 bg-white rounded-2xl shadow-sm max-w-[536px] max-md:px-5">
-                          <header className="flex gap-5 items-start self-start text-3xl font-semibold #1D2D35">
-                            <img
-                              loading="lazy"
+                        <div className="flex flex-col items-end py-[20px] px-[20px] text-lg font-medium #1D2D35 bg-white rounded-[20px] shadow-sm max-w-[536px] max-md:px-5">
+                          <div className="flex gap-5 items-center mb-[20px] self-start text-3xl font-bold">
+                            <CloseCircleOutlined 
+                              className="text-[20px] "
                               onClick={handleBackPopup}
-                              src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3cdb4f738951056cd82ceb92f181ffc7a691831fe00aab54da939ee58d9d52?apiKey=f19a917c094b4f6fa8172f34eb76d09c&"
-                              alt="Account Selection Icon"
-                              className="shrink-0 mr-2.5 -ml-0.5 aspect-[1.11] w-[39px]"
                             />
-                            <div className="flex-auto mt-3 ml-2">
+                            <div className="flex-auto font-[600]">
                               Chọn tài khoản
                             </div>
-                          </header>
+                          </div>
 
-                          {accountOptions.map((option, index) => (
-                            <AccountOption
-                              key={index}
-                              src={option.src}
-                              alt={option.alt}
-                              text={option.text}
-                            />
-                          ))}
+                          <div className="flex flex-col gap-[20px]">
+                            {accountOptions.map((option, index) => (
+                              <AccountOption
+                                key={index}
+                                src={option.src}
+                                alt={option.alt}
+                                text={option.text}
+                              />
+                            ))}
+                          </div>
                         </div>
                       </section>
                     </>
@@ -241,7 +261,6 @@ export default function Profile({}: Props) {
                 </div>
               )}
             </div>
-          </div>
         </div>
       </div>
     </>

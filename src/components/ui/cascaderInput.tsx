@@ -1,52 +1,30 @@
-import { Cascader } from "antd";
-import type { CascaderProps, GetProp } from "antd";
-
-type DefaultOptionType = GetProp<CascaderProps, "options">[number];
+import {  Select } from "antd";
 
 interface Option {
   value: string;
   label: string;
-  children?: Option[];
-  disabled?: boolean;
 }
 
-interface CascaderInputProps {
+interface SettingFilterProps {
   label: string;
-  defaultvalue: string;
   options: Option[];
-  width?: string;
 }
 
-const filter = (inputValue: string, path: DefaultOptionType[]) =>
-  path.some(
-    (option) =>
-      (option.label as string).toLowerCase().indexOf(inputValue.toLowerCase()) >
-      -1
-  );
-
-const CascaderInput: React.FC<CascaderInputProps> = ({
+const SettingFilter: React.FC<SettingFilterProps> = ({
   label,
   options,
-  defaultvalue,
-  width,
 }) => {
   return (
-    <div className="flex flex-col gap-[5px]">
-      <div className="">{label}</div>
-      <Cascader
-        className="w-full"
-        size="large"
-        style={{
-          height: "40px",
-          width: `${width}`,
-        }}
-        popupClassName="h-[80px]"
+    <div className="flex flex-col 2xl:gap-[14px] xl:gap-[10px] gap-[5px]">
+      <div className="text-[14px] xl:text-[16px]">{label}</div>
+      <Select
+        className="w-full xl:h-[40px] h-[32px]"
+        defaultValue={options[0].value}
         options={options}
-        defaultValue={[defaultvalue]}
-        showSearch={{ filter }}
-      />
+      >
+      </Select>
     </div>
   );
 };
 
-export default CascaderInput;
+export default SettingFilter;
