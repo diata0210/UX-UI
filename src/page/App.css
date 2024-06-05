@@ -29,8 +29,15 @@
   background: #ffffff;
 }
 
-@media screen and (min-width: 1400px) {
-  .img-kpi {
-    width: 200px;
-  }
+.rbc-btn-group:nth-child(1){
+  display: none;
+}
+
+.rbc-toolbar-label{
+  display: none;
+}
+
+.rbc-toolbar{
+  display: flex;
+  justify-content: flex-end;
 }

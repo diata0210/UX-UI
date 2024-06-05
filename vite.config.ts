@@ -4,7 +4,7 @@ import { VitePWA, VitePWAOptions } from "vite-plugin-pwa";
 import path from "path";
 import { defineConfig } from "vite";
 const manifestForPlugin: Partial<VitePWAOptions> = {
-  registerType: "prompt",
+  registerType: "autoUpdate",
   includeAssets: ["favicon.ico", "logo.png"],
   manifest: {
     name: "PhoKPI",
@@ -82,6 +82,12 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), VitePWA(manifestForPlugin)],
+  base: '/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    manifest: true,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

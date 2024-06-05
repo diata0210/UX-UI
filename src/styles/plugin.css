@@ -1,13 +1,18 @@
-.ant-picker-input{
+.ant-picker-input {
   input::placeholder {
-    color: #1d2D35 !important;
+    color: #1d2d35 !important;
   }
 }
 
-.ant-select-selector{
-  border: 1px solid rgba(0, 0, 0, 0.40) !important;
+.ant-select-selector {
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
 }
 
-.ant-select-selection-search input::placeholder{
-  color: #1d2D35 !important;
+.ant-select-selection-search input::placeholder {
+  color: #1d2d35 !important;
 }
+
+.rbc-btn-group button.rbc-active {
+  background-color: rgba(81, 137, 247, 1) !important;
+}
+

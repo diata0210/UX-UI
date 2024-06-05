@@ -119,7 +119,7 @@ export default function LandingPage() {
           <KPIIcon />
         </motion.div>
       </motion.div>
-      <div className="flex flex-col gap-[20px] mt-[60px]">
+      <div className="flex flex-col gap-[20px] mt-[30px]">
         <motion.div 
           className="flex justify-center text-[30px] w-full"
           variants={letter}

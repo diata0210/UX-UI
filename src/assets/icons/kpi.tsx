@@ -8,7 +8,7 @@ export default function KPIIcon({
       data-name="Layer 1" 
       xmlns="http://www.w3.org/2000/svg" 
       width="500" 
-      height="400" 
+      height="600" 
       viewBox="0 0 893.61704 736.75">
         <title>investing</title>
         <path d="M321.94148,651.875s332.5-277.5,524,0" transform="translate(-153.44148 -81.375)" fill="#f2f2f2"/>

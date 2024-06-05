@@ -4,9 +4,11 @@ import ClockIcon from "@/assets/icons/time";
 import { Badge } from "@/components/ui/badge";
 import dayjs from "dayjs";
 import "dayjs/locale/es";
-import React from "react";
+import  { useState } from "react";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
 import "./App.css";
+import EVENTS from "@/utils/constants/mockData";
+import { DatePicker } from "antd";
 type Props = {};
 
 dayjs.locale("vi");
@@ -14,20 +16,30 @@ const today = dayjs();
 
 export default function CalendarPage({}: Props) {
   const localizer = dayjsLocalizer(dayjs);
-  const [view, setView] = React.useState("month");
+  const [view, setView] = useState("month");
 
+  const [selectedDate, setSelectedDate] = useState(dayjs());
+
+  const handleDateChange = (date: any) => {
+    setSelectedDate(date);
+  };
+
+  const handleClickTask = (event: any) => {
+    location.href = `/edit_task/${event.id}`;
+  }
+  
   const components = {
     event: (props: any) => {
-      if (view === "week") {
+      if (view === "day") {
         return (
           <div
             className={`${
               props.event.status === 2 ? "bg-[#9FD0FD]" : "bg-[#FCD1D3]"
-            } h-full py-[6px] rounded-[8px]`}
+            } h-full py-[6px] rounded-[8px] w-full overflow-hidden`}
           >
-            <div className="flex flex-col gap-[10px]">
-              <div className="border-b-[1px] border-[#E6ECF0] flex flex-col pl-[6px] pr-[17px] gap-[6px]">
-                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">
+            <div className="flex flex-col gap-[6px] w-full justify-between h-full overflow-y-auto px-[6px]">
+              <div className="border-b-[1px] border-[#E6ECF0] flex flex-col gap-[6px] ">
+                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start hover:opacity-80 cursor-pointer">
                   {props.event.title}
                 </div>
                 <Badge
@@ -42,55 +54,7 @@ export default function CalendarPage({}: Props) {
                 </Badge>
               </div>
 
-              <div className="flex flex-row px-[6px] items-center justify-between">
-                <div className="flex items-center gap-[4px]">
-                  <div className="flex flex-row gap-[2px] items-center">
-                    <AttachIcon />
-                    <div className="text-gray-800 text-sm font-medium">
-                      {props.event.data.x}
-                    </div>
-                  </div>
-
-                  <FlagIcon />
-
-                  <div className="flex flex-row items-center gap-[2px]">
-                    <ClockIcon />
-                    <div className="text-center text-gray-800 text-xs font-bold">
-                      May 16
-                    </div>
-                  </div>
-                </div>
-
-                <img src="/avt.png" alt="avt" className="w-[16px] h-[16px]" />
-              </div>
-            </div>
-          </div>
-        );
-      } else if (view === "day") {
-        return (
-          <div
-            className={`${
-              props.event.status === 2 ? "bg-[#9FD0FD]" : "bg-[#FCD1D3]"
-            } h-full py-[6px] rounded-[8px] w-full`}
-          >
-            <div className="flex flex-col gap-[10px] w-full">
-              <div className="border-b-[1px] border-[#E6ECF0] flex flex-col pl-[6px] pr-[17px] gap-[6px]">
-                <div className="text-center text-gray-800 text-[14px] font-medium flex flex-start">
-                  {props.event.title}
-                </div>
-                <Badge
-                  variant={
-                    props.event.status == "2" ? "completed" : "progressing"
-                  }
-                  className="w-fit"
-                >
-                  {props.event.status == "2"
-                    ? "Đã hoàn thành"
-                    : "Chưa hoàn thành"}
-                </Badge>
-              </div>
-
-              <div className="flex flex-row px-[6px] items-center justify-between w-full">
+              <div className="flex flex-row items-center justify-between w-full">
                 <div className="flex items-center gap-[6px] flex-row">
                   <div className="flex flex-row gap-[6px] items-center">
                     <AttachIcon />
@@ -106,8 +70,6 @@ export default function CalendarPage({}: Props) {
                     </div>
                   </div>
                 </div>
-
-                <img src="/avt.png" alt="avt" className="w-[16px] h-[16px]" />
               </div>
             </div>
           </div>
@@ -117,9 +79,9 @@ export default function CalendarPage({}: Props) {
           <div
             className={`${
               props.event.status === 2 ? "text-[#0013FE]" : "text-[#FE2E00]"
-            } px-[20px] text-[14px] relative`}
+            } px-[10px] text-[14px] relative`}
           >
-            <span className="position top-2 mr-[4px]">.</span>
+            <span className="position top-2 mr-[4px] text-ellipsis">.</span>
             {props.event.title}
           </div>
         );
@@ -127,50 +89,24 @@ export default function CalendarPage({}: Props) {
     },
   };
 
-  const events = [
-    {
-      start: dayjs("2024-05-16T12:00:00").toDate(),
-      end: dayjs("2024-05-16T13:30:00").toDate(),
-      title: "UX UI 1",
-      data: {
-        x: 10,
-      },
-      status: 2,
-    },
-    {
-      start: dayjs("2024-05-17T12:00:00").toDate(),
-      end: dayjs("2024-05-17T13:30:00").toDate(),
-      title: "Nhật",
-      data: {
-        x: 20,
-      },
-      status: 1,
-    },
-    {
-      start: dayjs("2024-05-17T14:00:00").toDate(),
-      end: dayjs("2024-05-17T15:30:00").toDate(),
-      title: "UX-UI",
-      data: {
-        x: 20,
-      },
-      status: 1,
-    },
-  ];
-
   return (
     <div
-      style={{
-        height: "100%",
-        paddingBottom: "20px",
-      }}
+      className="relative h-full pb-[20px]"
     >
+      <DatePicker
+        className="absolute"
+        clearIcon={null}
+        value={selectedDate}
+        onChange={handleDateChange}
+        defaultValue={dayjs( '07/06/2024' ,"DD-MM-YYYY")}
+      />
       <Calendar
         localizer={localizer}
-        events={events}
+        events={EVENTS}
         startAccessor={"start"}
         endAccessor={"end"}
-        views={["month", "week", "day"]}
-        date={dayjs(today.format("YYYY-MM-DD") + "T8:00:00").toDate()}
+        views={["month", "day"]}
+        date={selectedDate.toDate()}
         onView={(view) => setView(view)}
         toolbar={true}
         defaultView="month"
@@ -182,6 +118,7 @@ export default function CalendarPage({}: Props) {
             return dayjs(date).format("DD/MM/YYYY");
           },
         }}
+        onDoubleClickEvent={handleClickTask}
         components={components}
         // eventPropGetter={event => {
         //   return {

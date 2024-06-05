@@ -145,6 +145,7 @@ export default function SettingPage({}: Props) {
               label="Múi giờ"
               options={timezone}
             />
+
             <div className=" ml-[35px] mt-[16px] flex justify-center items-center h-[44px] w-1/2 border-2 border-solid rounded-[10px] bg-white border-[#0069ff] text-[14px] font-medium text-[#0069ff]">
               Thêm lịch
             </div>
@@ -169,7 +170,9 @@ export default function SettingPage({}: Props) {
             />
           </div>
         </div>
-        <div className="flex align-center justify-around ">
+        <div 
+          className="flex align-center justify-around sticky bottom-[10px] position:[-webkit-sticky]"
+        >
           <Button
             variant="destructive"
             onClick={handleReset}
