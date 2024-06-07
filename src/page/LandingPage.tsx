@@ -105,7 +105,7 @@ export default function LandingPage() {
             variants={stagger}
           >
             <Button 
-              className="w-[160px] bg-primary-600 rounded-xl text-white font-medium py-[4px]"
+              className="w-[160px] !h-[48px] bg-primary-600 rounded-xl text-white font-medium py-[4px]"
               onClick={handleLogin}
             >Đăng nhập
             </Button>
