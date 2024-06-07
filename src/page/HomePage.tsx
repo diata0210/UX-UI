@@ -38,12 +38,12 @@ export default function HomePage() {
       {
         label: "Thời gian dự kiến",
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: "#4EB9EA",
+        backgroundColor: "#8884d8",
       },
       {
         label: "Thời gian thực tế",
         data: labels.map(() => getRandomNumber(0, 24)),
-        backgroundColor: "#116783",
+        backgroundColor: "#82ca9d",
       },
     ],
   };

@@ -105,7 +105,7 @@ export default function TaskPage({}: Props) {
       </div>
       <div className="flex justify-center">
         <Pagination
-          total={60}
+          total={35}
           showSizeChanger
           showQuickJumper
           showTotal={(total) => `Total ${total} items`}
