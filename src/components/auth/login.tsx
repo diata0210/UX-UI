@@ -41,15 +41,11 @@ export default function Login() {
         {...form}
       >
         <div
-          className='h-[612px] pt-[20px] flex flex-col px-[69px] z-[999] w-1/3 bg-white/opacity-20 rounded-[20px] shadow backdrop-blur-sm'
-          style={{
-            boxShadow: '0px 4px 20px 0px rgba(0, 0, 0, 0.25)'
-          }}
+          className='max-h-[612px] pt-[20px] flex flex-col px-[50px] z-[999] w-1/3 bg-white/opacity-20 rounded-[20px] shadow backdrop-blur-sm'
         >
-          <div className="text-[26px] font-normal flex w-full justify-center mb-[36px]">Đăng nhập</div>
+          <div className="text-[26px] font-normal flex w-full justify-center mb-[10px]">Đăng nhập</div>
           <div className='flex flex-col gap-[30px]'>
             <div className='flex flex-col gap-[24px]'>
-
               <FormField
                 control={form.control}
                 name='email'
@@ -92,18 +88,22 @@ export default function Login() {
               </div>
             </div>
           </div>
-          <Button onClick={login} type="submit" variant="submit" className='mt-[20px] mb-[30px] w-full text-white text-2xl font-normal'>
-            Đăng nhập
-          </Button>
-          <div className='w-full justify-center items-center text-center text-sm font-normal mb-[30px]'>
-            hoặc tiếp tục với
-          </div>
-          <div className='flex w-full lg:gap-0 gap-[10px] justify-between items-center lg:flex-row mb-[36px] flex-wrap flex-col'>
-            <img src="/google.png" alt="google" className='w-[136px] h-[40px]' />
-            <img src="/facebook.png" alt="facebook" className='w-[136px] h-[40px]' />
-          </div>
-          <div className='font-normal w-full text-center'>
-            Bạn không có tài khoản ? <span className='text-[16px] font-bold hover:text-accent-700' onClick={navigateToRegister}>Đăng ký</span>
+          <div className="flex gap-[10px] flex-col mt-[20px]">
+            <Button onClick={login} type="submit" variant="submit" className='mt-[20px] w-full text-white text-2xl font-normal'>
+              Đăng nhập
+            </Button>
+            <div className='w-full justify-center items-center text-center text-sm font-normal'>
+              hoặc tiếp tục với
+            </div>
+            <div className="flex flex-col py-[10px] pb-[20px]">
+              <div className='flex w-full lg:gap-0 gap-[10px] justify-between items-center lg:flex-row mb-[36px] flex-wrap flex-col'>
+                <img src="/google.png" alt="google" className='w-[136px] h-[40px]' />
+                <img src="/facebook.png" alt="facebook" className='w-[136px] h-[40px]' />
+              </div>
+              <div className='font-normal w-full text-center'>
+                Bạn không có tài khoản ? <span className='text-[16px] font-bold hover:text-accent-700' onClick={navigateToRegister}>Đăng ký</span>
+              </div>
+            </div>
           </div>
         </div>
       </Form>

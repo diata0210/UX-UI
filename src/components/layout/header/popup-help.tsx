@@ -3,7 +3,7 @@ type Props = {
   // isVisible: boolean;
 };
 import { Button } from "@/components/ui/button";
-import { InboxOutlined } from "@ant-design/icons";
+import { CloseOutlined, InboxOutlined } from "@ant-design/icons";
 import type { UploadProps } from "antd";
 import { Input, message, Upload } from "antd";
 import { toast } from "react-toastify";
@@ -32,7 +32,7 @@ export default function PopupHelp({ setPopup }: Props) {
     },
   };
 
-  const handleSubmit= () => {
+  const handleSubmit = () => {
     setPopup(false);
     toast.success("Gửi thành công")
   }
@@ -40,47 +40,46 @@ export default function PopupHelp({ setPopup }: Props) {
   return (
     <>
       <section className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-        <div className="items-end px-11 pt-9 pb-20 text-lg font-medium text-gray-800 bg-white rounded-2xl shadow-sm w-[536px] max-md:px-5">
-          <header className="flex flex-row text-3xl text-black justify-between w-full">
-            <div className="text-[26px] font-medium text-[#1d2d35]">
-              Bạn cần trợ giúp gì?
+        <div className="items-end px-11 pt-9 tex py-[20px] text-lg font-medium text-gray-800 bg-white rounded-2xl shadow-sm w-[536px] max-md:px-5">
+          <CloseOutlined
+            className="text-[20px] text-[#1d2d35] flex justify-end"
+            onClick={() => setPopup(false)}
+          />
+          <header className="flex flex-row text-3xl text-text-default text-center justify-center w-full">
+            <div className="text-[26px] font-medium text-blue-500 w-full justify-center">
+              Bạn cần trợ giúp gì ?
             </div>
-            <img
-              loading="lazy"
-              onClick={() => setPopup(false)}
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/9f3cdb4f738951056cd82ceb92f181ffc7a691831fe00aab54da939ee58d9d52?apiKey=f19a917c094b4f6fa8172f34eb76d09c&"
-              alt="Account Selection Icon"
-              className="shrink-0 w-[25px] text-[#1D2D35]"
-            />
           </header>
-          <div className="flex flex-col gap-[26px]">
-            <div className="flex flex-col gap-[5px]">
-              <div className="mt-[29px]">Mô tả vấn đề của bạn</div>
-              <TextArea rows={4} placeholder="Mô tả vấn đề" maxLength={6} />
-            </div>
-            <div className="flex flex-col gap-[5px]">
-              <div>
-                Ảnh chụp màn hình sẽ giúp chúng tôi hiểu rõ hơn về vấn đề của
-                bạn. (không bắt buộc)
+          <div className="flex flex-col gap-[40px]">
+            <div className="flex flex-col gap-[26px]">
+              <div className="flex flex-col gap-[5px]">
+                <div className="mt-[20px]">Mô tả vấn đề của bạn</div>
+                <TextArea rows={4} placeholder="Mô tả vấn đề" maxLength={6} />
               </div>
-              <div>
-                <Dragger {...props}>
-                  <p className="ant-upload-drag-icon">
-                    <InboxOutlined />
-                  </p>
-                  <p className="ant-upload-text">
-                    Bấm hoặc kéo thả ảnh vào đây
-                  </p>
-                  <p className="ant-upload-hint">
-                    Hỗ trợ đăng tải một hay nhiều ảnh cùng lúc
-                  </p>
-                </Dragger>
+              <div className="flex flex-col gap-[5px]">
+                <div>
+                  Ảnh chụp màn hình sẽ giúp chúng tôi hiểu rõ hơn về vấn đề của
+                  bạn. (không bắt buộc)
+                </div>
+                <div>
+                  <Dragger {...props}>
+                    <p className="ant-upload-drag-icon">
+                      <InboxOutlined />
+                    </p>
+                    <p className="ant-upload-text">
+                      Bấm hoặc kéo thả ảnh vào đây
+                    </p>
+                    <p className="ant-upload-hint">
+                      Hỗ trợ đăng tải một hay nhiều ảnh cùng lúc
+                    </p>
+                  </Dragger>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="w-full flex flex-row justify-end mt-[20px] hover:opacity-90">
-            <Button variant="submit" onClick={handleSubmit}>Gửi</Button>
+  
+            <div className="w-full flex flex-row justify-end hover:opacity-90">
+              <Button variant="submit" size="sm" onClick={handleSubmit}>Gửi</Button>
+            </div>
           </div>
         </div>
       </section>

@@ -25,7 +25,7 @@ export default function TaskItem({
 }: Props) {
   return (
     <div
-      className={`px-[22px] pt-[10px] rounded-[15px] py-[8px] xl:w-[300px] w-[240px] 2xl:h-[146px] h-fit  ${
+      className={`px-[18px] pt-[10px] rounded-[15px] py-[8px] xl:w-[300px] w-[250px] 2xl:h-[146px] h-fit  ${
         status == "1" ? "bg-[#FCD1D3]" : "bg-[#9FD0FD]"
       }`}
     >

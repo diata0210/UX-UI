@@ -25,6 +25,7 @@ export default function HomePage() {
         font: {
           size: 14,
         },
+        
       },
     },
   };
