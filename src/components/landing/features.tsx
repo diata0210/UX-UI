@@ -142,7 +142,7 @@ export default function Features() {
             whileHover="whileHover" 
             whileTap='whileTap'
           >             
-            <IconContext.Provider value={{color:"#56a8f4", size:"22px"}}>
+            <IconContext.Provider value={{color:"red", size:"22px"}}>
               <IoShareSocialOutline />
             </IconContext.Provider>
             </motion.span>

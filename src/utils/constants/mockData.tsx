@@ -52,7 +52,7 @@ export const TASKS = {
       status: "1",
       date: "June 7",
       time: "10:00 - 11:00",
-      place: "Room",
+      place: "Office",
       number_file: 2,
       time_completed: "0",
       percent_work: "80%"
@@ -142,7 +142,7 @@ export const TASKS = {
       status: "1",
       date: "June 5",
       time: "15:00 - 16:00",
-      place: "Meeting Room",
+      place: "Home",
       number_file: 2,
       time_completed: "0",
       percent_work: "80%"
@@ -173,22 +173,22 @@ export const TASKS = {
   3: [
   {
     id: 13,
-    name: "Product Development Workshop",
+    name: "Product Workshop",
     status: "1",
     date: "June 3",
     time: "10:00 - 12:00",
-    place: "Innovation Lab",
+    place: "B1 HUST",
     number_file: 4,
     time_completed: "0",
     percent_work: "80%"
   },
   {
     id: 14,
-    name: "Team Building Activity",
+    name: "Team Building",
     status: "1",
     date: "June 3",
     time: "14:00 - 16:00",
-    place: "Outdoor Park",
+    place: "Tay Leak",
     number_file: 0,
     time_completed: "0",
     percent_work: "100%"
@@ -206,33 +206,33 @@ export const TASKS = {
   },
   {
     id: 16,
-    name: "Team Retrospective",
+    name: "Team Meeting",
     status: "2",
     date: "June 2",
     time: "17:00 - 18:00",
-    place: "Meeting Room",
+    place: "Coffee",
     number_file: 1,
     time_completed: "1",
     percent_work: "100%"
   },
   {
     id: 17,
-    name: "Training Session",
+    name: "Training HTML",
     status: "1",
     date: "June 1",
     time: "9:30 - 11:00",
-    place: "Training Room",
+    place: "Home",
     number_file: 3,
     time_completed: "0",
     percent_work: "70%"
   },
   {
     id: 18,
-    name: "Client Feedback Meeting",
+    name: "Client Meeting",
     status: "1",
     date: "June 1",
     time: "14:00 - 15:30",
-    place: "Client Office",
+    place: "Coffee",
     number_file: 2,
     time_completed: "0",
     percent_work: "90%"
@@ -241,22 +241,22 @@ export const TASKS = {
   4: [
 {
     id: 19,
-    name: "Brainstorming Session",
+    name: "Brainstorming",
     status: "1",
     date: "June 1",
     time: "16:00 - 17:30",
-    place: "Meeting Room",
+    place: "Office",
     number_file: 3,
     time_completed: "0",
     percent_work: "80%"
   },
   {
     id: 20,
-    name: "Team Training Workshop",
+    name: "Team Training",
     status: "1",
     date: "June 8",
     time: "8:30 - 12:00",
-    place: "Training Room",
+    place: "Beach",
     number_file: 4,
     time_completed: "0",
     percent_work: "70%"
@@ -289,18 +289,18 @@ export const TASKS = {
     status: "1",
     date: "May 31",
     time: "16:00 - 17:00",
-    place: "Meeting Room",
+    place: "Office",
     number_file: 2,
     time_completed: "0",
     percent_work: "80%"
   },
   {
     id: 24,
-    name: "Team Building Activity",
+    name: "Team Building",
     status: "1",
     date: "May 30",
     time: "14:00 - 16:00",
-    place: "Outdoor Park",
+    place: "Beach",
     number_file: 0,
     time_completed: "0",
     percent_work: "100%"
@@ -313,7 +313,7 @@ export const TASKS = {
     status: "1",
     date: "May 31",
     time: "16:00 - 17:00",
-    place: "Meeting Room",
+    place: "Office",
     number_file: 2,
     time_completed: "0",
     percent_work: "80%"
@@ -324,14 +324,14 @@ export const TASKS = {
     status: "1",
     date: "May 30",
     time: "14:00 - 16:00",
-    place: "Outdoor Park",
+    place: "Coffee",
     number_file: 0,
     time_completed: "0",
     percent_work: "100%"
   },
   {
     id: 27,
-    name: "Client Feedback Meeting",
+    name: "Client Meeting",
     status: "1",
     date: "May 30",
     time: "10:00 - 11:30",
@@ -342,22 +342,22 @@ export const TASKS = {
   },
   {
     id: 28,
-    name: "Training Session",
+    name: "Training Gyms",
     status: "1",
     date: "May 29",
     time: "9:30 - 11:00",
-    place: "Training Room",
+    place: "Gyms ",
     number_file: 3,
     time_completed: "0",
     percent_work: "70%"
   },
   {
     id: 29,
-    name: "Team Retrospective",
+    name: "Team Meeting",
     status: "2",
     date: "May 29",
     time: "17:00 - 18:30",
-    place: "Meeting Room",
+    place: "Coffee",
     number_file: 1,
     time_completed: "1",
     percent_work: "100%"
