@@ -251,9 +251,12 @@ export default function EvaluationPage() {
           <CloseOutlined/>
         }
       >
-          <div className="w-full items-center justify-start pt-[30px] pb-[10px]">
+          <div className="w-full items-center justify-start pt-[10px] pb-[10px]">
               <div className="flex flex-row justify-between">
-                <div className="flex flex-col gap-[10px] w-full text-[16px]">
+            <div className="flex flex-col gap-[10px] w-full text-[16px]">
+              <div className="flex w-full justify-center">
+                <div className="text-primary-600 text-[26px] font-medium">Chi tiết về KPI</div>
+              </div>
                 <div className="flex item-center justify-between gap-[20px]">
                   <div>Tổng số task:</div>
                     <div>20</div>
